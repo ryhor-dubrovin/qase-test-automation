@@ -5,10 +5,10 @@ import org.tms.pages.LoginPage;
 
 public class LoginPageService {
     //business actions
+    LoginPage loginPage = new LoginPage();
     public ProjectsPageService loginWithUser(User user) {
-        LoginPage loginPage = new LoginPage();
-        loginPage
-                .fillInPassword(user.getEmail())
+        loginPage.openPage()
+                .fillInEmail(user.getEmail())
                 .fillInPassword(user.getPassword())
                 .clickSingInButton();
         return new ProjectsPageService();

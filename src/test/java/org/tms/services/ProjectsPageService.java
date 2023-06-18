@@ -1,5 +1,10 @@
 package org.tms.services;
 
-public class ProjectsPageService {
+import org.tms.pages.ProjectsPage;
 
+public class ProjectsPageService {
+    ProjectsPage projectsPage = new ProjectsPage();
+    public String getPageNameSectionText() {
+        return projectsPage.getPageNameSectionText();
+    }
 }

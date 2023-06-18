@@ -3,6 +3,8 @@ package org.tms.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.tms.constants.Urls.LOGIN_PAGE;
+
 public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
     private WebElement emailField;
@@ -10,6 +12,10 @@ public class LoginPage extends BasePage {
     private WebElement passwordField;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement singInButton;
+    public LoginPage openPage() {
+        driver.get(LOGIN_PAGE);
+        return this;
+    }
 
     public LoginPage fillInEmail(String email) {
         waitVisibilityOf(emailField).sendKeys(email);
@@ -17,13 +23,12 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage fillInPassword(String password) {
-        waitVisibilityOf(emailField).sendKeys(password);
+        waitVisibilityOf(passwordField).sendKeys(password);
         return this;
     }
 
     public void clickSingInButton() {
-        waitElementToBeClickable(singInButton);
+        waitElementToBeClickable(singInButton).click();
     }
-    //javauser95@gmail.com
-    //AQA20onl
+
 }
