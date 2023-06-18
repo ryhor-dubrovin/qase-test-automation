@@ -1,5 +1,6 @@
 package org.tms.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.model.User;
@@ -17,9 +18,12 @@ public class ProjectsPageTest extends BaseTest {
     public void createNewProjectTest() {
         User user = new User(System.getProperty("email"),System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        projectsPageService
+        boolean isCreateNewCaseButtonDisplayed = projectsPageService
                 .clickCreateNewProjectButton()
                 .fillInProjectName(TestDataGenerator.getTestProjectName())
-                .clickCreateProjectButton();
+                .clickCreateProjectButton()
+                .isCreateNewCaseButtonDisplayed();
+        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
+                "\"Create new case\" button does not displayed!");
     }
 }
