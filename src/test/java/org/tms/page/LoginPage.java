@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
 
     public void clickSingInButton() {
         waitElementToBeClickable(singInButton);
-    } 
+    }
     //javauser95@gmail.com
     //AQA20onl
 }
