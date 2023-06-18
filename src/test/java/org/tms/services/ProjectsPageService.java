@@ -11,9 +11,9 @@ public class ProjectsPageService {
         projectsPage.getCreateNewProjectButton().click();
         return this;
     }
-    public DistinctProjectPageService clickCreateProjectButton() {
+    public SingleProjectPageService clickCreateProjectButton() {
         projectsPage.getCreateProjectButton().click();
-        return new DistinctProjectPageService();
+        return new SingleProjectPageService();
     }
     public ProjectsPageService fillInProjectName(String projectName) {
         projectsPage.getProjectNameField().sendKeys(projectName);
