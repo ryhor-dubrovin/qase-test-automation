@@ -7,4 +7,17 @@ public class ProjectsPageService {
     public boolean isCreateNewProjectButtonDisplayed() {
         return projectsPage.getCreateNewProjectButton().isDisplayed();
     }
+    public ProjectsPageService clickCreateNewProjectButton() {
+        projectsPage.getCreateNewProjectButton().click();
+        return this;
+    }
+    public DistinctProjectPageService clickCreateProjectButton() {
+        projectsPage.getCreateProjectButton().click();
+        return new DistinctProjectPageService();
+    }
+    public ProjectsPageService fillInProjectName(String projectName) {
+        projectsPage.getProjectNameField().sendKeys(projectName);
+        return this;
+    }
+
 }

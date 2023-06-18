@@ -3,8 +3,8 @@
 <suite name="Smoke" parallel="tests" thread-count="3">
     <test name="Login PageTest1">
         <classes>
-            <class name="org.tms.tests.LoginPageTest"/>
-<!--             <class name="org.tms.tests.ProjectsPageTest"/> -->
+<!--            <class name="org.tms.tests.LoginPageTest"/>-->
+             <class name="org.tms.tests.ProjectsPageTest"/>
         </classes>
     </test>
 </suite>
