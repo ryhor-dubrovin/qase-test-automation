@@ -19,11 +19,7 @@ public class LoginPageTest extends BasePage {
     public void loginWithUserTest() {
         User user = new User(System.getProperty("email"),System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        String actualPageTextSectionText = projectsPageService.getPageNameSectionText();
-        String expectedPageTextSectionText = "Projects";
-        Assert.assertEquals(
-                actualPageTextSectionText,
-                expectedPageTextSectionText,
-                "Actual text from page name section does not match expected!");
+        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
+                "\"Create new project\" button does not displayed!");
     }
 }

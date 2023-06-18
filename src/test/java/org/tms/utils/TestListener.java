@@ -47,10 +47,12 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext iTestContext) {
+        System.out.println("--- !!!START!! ---");
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
+        System.out.println("--- !!!FINISHED!!! ---");
     }
 
     private long getExecutionTime(ITestResult iTestResult) {

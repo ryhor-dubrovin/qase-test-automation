@@ -7,7 +7,8 @@ public class LoginPageService {
     //business actions
     LoginPage loginPage = new LoginPage();
     public ProjectsPageService loginWithUser(User user) {
-        loginPage.openPage()
+        loginPage
+                .openPage()
                 .fillInEmail(user.getEmail())
                 .fillInPassword(user.getPassword())
                 .clickSingInButton();

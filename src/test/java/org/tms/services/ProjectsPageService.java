@@ -4,7 +4,7 @@ import org.tms.pages.ProjectsPage;
 
 public class ProjectsPageService {
     ProjectsPage projectsPage = new ProjectsPage();
-    public String getPageNameSectionText() {
-        return projectsPage.getPageNameSectionText();
+    public boolean isCreateNewProjectButtonDisplayed() {
+        return projectsPage.getCreateNewProjectButton().isDisplayed();
     }
 }
