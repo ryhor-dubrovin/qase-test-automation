@@ -10,7 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
-    private final static int WAIT_TIMEOUT_SECONDS = 5;
+    private final static int IMPLICITLY_WAIT_SECONDS = 3;
 
     private WebDriverFactory() {
     }
@@ -33,13 +33,18 @@ public class WebDriverFactory {
                 driver = new SafariDriver();
                 break;
             }
+            case "chrome": {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            }
             default: {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_SECONDS, TimeUnit.SECONDS);
         return driver;
     }
 
