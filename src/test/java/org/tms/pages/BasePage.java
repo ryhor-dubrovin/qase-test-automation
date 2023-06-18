@@ -1,4 +1,4 @@
-package org.tms.page;
+package org.tms.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
