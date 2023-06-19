@@ -8,9 +8,16 @@ public class ProjectsPageService {
     public boolean isCreateNewProjectButtonDisplayed() {
         return projectsPage.getCreateNewProjectButton().isDisplayed();
     }
+    public boolean isChatMessagesButtonDisplayed() {
+        return projectsPage.getChatMessagesButton().isDisplayed();
+    }
 
     public ProjectsPageService clickCreateNewProjectButton() {
         projectsPage.getCreateNewProjectButton().click();
+        return this;
+    }
+    public ProjectsPageService clickChatButton() {
+        projectsPage.getChatButton().click();
         return this;
     }
 

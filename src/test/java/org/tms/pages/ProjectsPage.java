@@ -11,6 +11,10 @@ public class ProjectsPage extends BasePage {
     private WebElement projectNameField;
     @FindBy(xpath = "//span[text() = 'Create project']")
     private WebElement createProjectButton;
+    @FindBy(xpath = "//span[@aria-label = 'Chat']")
+    private WebElement chatButton;
+    @FindBy(xpath = "//button[@aria-label = 'Messages']")
+    private WebElement chatMessagesButton;
 
     public WebElement getCreateNewProjectButton() {
         return waitElementToBeClickable(createNewProjectButton);
@@ -22,5 +26,13 @@ public class ProjectsPage extends BasePage {
 
     public WebElement getCreateProjectButton() {
         return waitElementToBeClickable(createProjectButton);
+    }
+
+    public WebElement getChatButton() {
+        return waitElementToBeClickable(chatButton);
+    }
+
+    public WebElement getChatMessagesButton() {
+        return waitElementToBeClickable(chatMessagesButton);
     }
 }

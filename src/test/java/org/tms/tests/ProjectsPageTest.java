@@ -29,4 +29,13 @@ public class ProjectsPageTest extends BaseTest {
         Assert.assertTrue(isCreateNewCaseButtonDisplayed,
                 "\"Create new case\" button does not displayed!");
     }
+    @Test
+    public void openChatTest() {
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
+        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
+        boolean isChatMessagesButtonDisplayed = projectsPageService
+                .clickChatButton()
+                .isChatMessagesButtonDisplayed();
+        Assert.assertTrue(isChatMessagesButtonDisplayed, "\"Messages\" button from chat does not displayed!");
+    }
 }
