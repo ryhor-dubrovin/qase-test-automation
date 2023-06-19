@@ -1,5 +1,6 @@
 package org.tms.tests;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,7 +26,8 @@ public class ProjectsPageTest extends BaseTest {
                 .fillInProjectName(TestDataGenerator.getTestProjectName())
                 .clickCreateProjectButton()
                 .isCreateNewCaseButtonDisplayed();
-        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
-                "\"Create new case\" button does not displayed!");
+//        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
+//                "\"Create new case\" button does not displayed!");
+        Assert.assertEquals(1,2);
     }
 }
