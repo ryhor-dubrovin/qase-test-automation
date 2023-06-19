@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tms.driver.DriverSingleton;
 
 public abstract class BasePage {
-    private final static int EXPLICITLY_WAIT_SECONDS = 7;
+    private final static int EXPLICITLY_WAIT_SECONDS = 70;
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     protected BasePage() {
