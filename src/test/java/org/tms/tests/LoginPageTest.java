@@ -4,11 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.model.User;
-import org.tms.pages.BasePage;
 import org.tms.services.LoginPageService;
 import org.tms.services.ProjectsPageService;
 
-public class LoginPageTest extends BasePage {
+public class LoginPageTest extends BaseTest {
 
     private LoginPageService loginPageService;
     @BeforeClass
