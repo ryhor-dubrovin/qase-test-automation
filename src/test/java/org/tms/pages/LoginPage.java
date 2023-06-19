@@ -12,6 +12,7 @@ public class LoginPage extends BasePage {
     private WebElement passwordField;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement singInButton;
+
     public LoginPage openPage() {
         driver.get(LOGIN_PAGE);
         return this;

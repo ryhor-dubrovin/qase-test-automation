@@ -10,13 +10,15 @@ import org.tms.utils.TestDataGenerator;
 
 public class ProjectsPageTest extends BaseTest {
     private LoginPageService loginPageService;
+
     @BeforeClass
     public void setUp() {
         loginPageService = new LoginPageService();
     }
+
     @Test
     public void createNewProjectTest() {
-        User user = new User(System.getProperty("email"),System.getProperty("password"));
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
         boolean isCreateNewCaseButtonDisplayed = projectsPageService
                 .clickCreateNewProjectButton()
