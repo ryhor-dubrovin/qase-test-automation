@@ -13,6 +13,8 @@ public class ProjectsPage extends BasePage {
     private WebElement createProjectButton;
     @FindBy(xpath = "//span[@aria-label = 'Chat']")
     private WebElement chatButton;
+    @FindBy(xpath = "//iframe[@name='intercom-messenger-frame']")
+    private WebElement chatFrame;
     @FindBy(xpath = "//button[@aria-label = 'Messages']")
     private WebElement chatMessagesButton;
 
@@ -33,6 +35,7 @@ public class ProjectsPage extends BasePage {
     }
 
     public WebElement getChatMessagesButton() {
+        driver.switchTo().frame(chatFrame);
         return waitElementToBeClickable(chatMessagesButton);
     }
 }
