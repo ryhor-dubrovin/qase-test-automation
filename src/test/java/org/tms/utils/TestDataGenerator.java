@@ -6,7 +6,9 @@ public class TestDataGenerator {
     private static Faker faker = new Faker();
 
     public static String getTestProjectName() {
-        return faker.name().username();
+        return faker.book().title();
+//        return faker.file().fileName();
+//        return faker.name().username();
     }
 
 }

@@ -3,8 +3,8 @@ package org.tms.driver;
 import org.openqa.selenium.WebDriver;
 
 public class DriverSingleton {
-    private WebDriver driver;
     private static ThreadLocal<DriverSingleton> instance = new ThreadLocal<>();
+    private WebDriver driver;
 
     private DriverSingleton() {
         driver = WebDriverFactory.getWebDriver();
