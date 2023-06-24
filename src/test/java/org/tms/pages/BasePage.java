@@ -15,7 +15,6 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    // can be moved to utils class
     protected WebElement waitVisibilityOf(WebElement element) {
         return new WebDriverWait(driver, EXPLICITLY_WAIT_SECONDS).until(ExpectedConditions.visibilityOf(element));
     }

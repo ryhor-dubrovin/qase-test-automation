@@ -6,28 +6,28 @@ public class ProjectsPageService {
     private ProjectsPage projectsPage = new ProjectsPage();
 
     public boolean isCreateNewProjectButtonDisplayed() {
-        return projectsPage.getCreateNewProjectButton().isDisplayed();
+        return projectsPage.isCreateNewProjectButtonDisplayed();
     }
     public boolean isChatMessagesButtonDisplayed() {
-        return projectsPage.getChatMessagesButton().isDisplayed();
+        return projectsPage.isChatMessagesButtonDisplayed();
     }
 
     public ProjectsPageService clickCreateNewProjectButton() {
-        projectsPage.getCreateNewProjectButton().click();
+        projectsPage.clickCreateNewProjectButton();
         return this;
     }
     public ProjectsPageService clickChatButton() {
-        projectsPage.getChatButton().click();
+        projectsPage.clickChatButton();
         return this;
     }
 
     public SingleProjectPageService clickCreateProjectButton() {
-        projectsPage.getCreateProjectButton().click();
+        projectsPage.clickCreateProjectButton();
         return new SingleProjectPageService();
     }
 
     public ProjectsPageService fillInProjectName(String projectName) {
-        projectsPage.getProjectNameField().sendKeys(projectName);
+        projectsPage.fillInProjectName(projectName);
         return this;
     }
 
