@@ -22,25 +22,25 @@ public class ProjectsPage extends BasePage {
     @FindBy(xpath = "//button[@aria-label = 'Messages']")
     private WebElement chatMessagesButton;
     public boolean isCreateNewProjectButtonDisplayed() {
-        return getCreateNewProjectButton().isDisplayed();
+        return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }
     public boolean isChatMessagesButtonDisplayed() {
-        return getChatMessagesButton().isDisplayed();
+        return waitVisibilityOf(chatMessagesButton).isDisplayed();
     }
     public ProjectsPage clickCreateNewProjectButton() {
-        getCreateNewProjectButton().click();
+        waitElementToBeClickable(createNewProjectButton).click();
         return this;
     }
     public ProjectsPage clickChatButton() {
-        getChatButton().click();
+        waitElementToBeClickable(chatButton).click();
         return this;
     }
-    public SingleProjectPage clickCreateProjectButton() {
-        getCreateProjectButton().click();
-        return new SingleProjectPage();
+    public void clickCreateProjectButton() {
+        waitElementToBeClickable(createProjectButton).click();
+//        return new SingleProjectPage();
     }
-    public ProjectsPage fillInProjectName(String projectName) {
-        getProjectNameField().sendKeys(projectName);
+    public ProjectsPage fillInProjectNameField(String projectName) {
+        waitVisibilityOf(projectNameField).sendKeys(projectName);
         return this;
     }
 

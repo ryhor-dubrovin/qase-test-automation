@@ -1,6 +1,7 @@
 package org.tms.services;
 
 import org.tms.pages.ProjectsPage;
+import org.tms.utils.TestDataGenerator;
 
 public class ProjectsPageService {
     private ProjectsPage projectsPage = new ProjectsPage();
@@ -12,23 +13,17 @@ public class ProjectsPageService {
         return projectsPage.isChatMessagesButtonDisplayed();
     }
 
-    public ProjectsPageService clickCreateNewProjectButton() {
-        projectsPage.clickCreateNewProjectButton();
-        return this;
-    }
     public ProjectsPageService clickChatButton() {
         projectsPage.clickChatButton();
         return this;
     }
 
-    public SingleProjectPageService clickCreateProjectButton() {
-        projectsPage.clickCreateProjectButton();
+    public SingleProjectPageService createNewProject() {
+        projectsPage
+                .clickCreateNewProjectButton()
+                .fillInProjectNameField(TestDataGenerator.getTestProjectName())
+                .clickCreateProjectButton();
         return new SingleProjectPageService();
-    }
-
-    public ProjectsPageService fillInProjectName(String projectName) {
-        projectsPage.fillInProjectName(projectName);
-        return this;
     }
 
 }

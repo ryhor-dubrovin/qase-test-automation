@@ -22,12 +22,10 @@ public class ProjectsPageTest extends BaseTest {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
         boolean isCreateNewCaseButtonDisplayed = projectsPageService
-                .clickCreateNewProjectButton()
-                .fillInProjectName(TestDataGenerator.getTestProjectName())
-                .clickCreateProjectButton()
+                .createNewProject()
                 .isCreateNewCaseButtonDisplayed();
         Assert.assertTrue(isCreateNewCaseButtonDisplayed,
-                "\"Create new case\" button does not displayed!");
+                "Failed to create new project!");
     }
     @Test
     public void openChatTest() {

@@ -9,5 +9,8 @@ public class SingleProjectPage extends BasePage {
     @FindBy(xpath = "//span[text() = 'Create new case']")
     private WebElement createNewCaseButton;
 
+    public boolean isCreateNewCaseButtonDisplayed() {
+        return waitVisibilityOf(createNewCaseButton).isDisplayed();
+    }
 
 }

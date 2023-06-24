@@ -6,6 +6,6 @@ public class SingleProjectPageService {
     private SingleProjectPage singleProjectPage = new SingleProjectPage();
 
     public boolean isCreateNewCaseButtonDisplayed() {
-        return singleProjectPage.getCreateNewCaseButton().isDisplayed();
+        return singleProjectPage.isCreateNewCaseButtonDisplayed();
     }
 }
