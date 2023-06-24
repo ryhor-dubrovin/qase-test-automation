@@ -1,5 +1,6 @@
 package org.tms.model;
 
+
 public class User {
     //business model
     private String email;
