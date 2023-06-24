@@ -5,7 +5,7 @@ import org.tms.pages.LoginPage;
 
 public class LoginPageService {
     //business actions
-    LoginPage loginPage = new LoginPage();
+    private LoginPage loginPage = new LoginPage();
 
     public ProjectsPageService loginWithUser(User user) {
         loginPage
