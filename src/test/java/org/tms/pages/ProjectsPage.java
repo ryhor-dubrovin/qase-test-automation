@@ -3,8 +3,8 @@ package org.tms.pages;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.tms.services.ProjectsPageService;
-import org.tms.services.SingleProjectPageService;
+
+import java.util.List;
 
 @Getter
 public class ProjectsPage extends BasePage {
@@ -21,6 +21,7 @@ public class ProjectsPage extends BasePage {
     private WebElement chatFrame;
     @FindBy(xpath = "//button[@aria-label = 'Messages']")
     private WebElement chatMessagesButton;
+    private List<ProjectsPagePanel> projectsPanels;
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }

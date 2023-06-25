@@ -9,6 +9,8 @@ import org.tms.services.LoginPageService;
 import org.tms.services.ProjectsPageService;
 import org.tms.utils.TestDataGenerator;
 
+import static org.tms.constants.Urls.PROJECTS_PAGE;
+
 public class ProjectsPageTest extends BaseTest {
     private LoginPageService loginPageService;
 
@@ -26,6 +28,14 @@ public class ProjectsPageTest extends BaseTest {
                 .isCreateNewCaseButtonDisplayed();
         Assert.assertTrue(isCreateNewCaseButtonDisplayed,
                 "Failed to create new project!");
+    }
+    @Test
+    public void createAndDeleteProjectTest() {
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
+        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
+        projectsPageService.createNewProject();
+        driver.get(PROJECTS_PAGE);
+        projectsPageService.deleteProject();
     }
     @Test
     public void openChatTest() {

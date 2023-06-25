@@ -1,10 +1,12 @@
 package org.tms.services;
 
 import org.tms.pages.ProjectsPage;
+import org.tms.pages.ProjectsPagePanel;
 import org.tms.utils.TestDataGenerator;
 
 public class ProjectsPageService {
     private ProjectsPage projectsPage = new ProjectsPage();
+    private ProjectsPagePanel projectsPagePanel = new ProjectsPagePanel();
 
     public boolean isCreateNewProjectButtonDisplayed() {
         return projectsPage.isCreateNewProjectButtonDisplayed();
@@ -24,6 +26,10 @@ public class ProjectsPageService {
                 .fillInProjectNameField(TestDataGenerator.getTestProjectName())
                 .clickCreateProjectButton();
         return new SingleProjectPageService();
+    }
+    public void deleteProject() {
+        projectsPagePanel.setIndex(2);
+        projectsPagePanel.openProjectMenu().clickMenuDeleteButton().clickDeleteButton();
     }
 
 }
