@@ -34,6 +34,6 @@ public class ProjectsPageTest extends BaseTest {
         boolean isChatMessagesButtonDisplayed = projectsPageService
                 .clickChatButton()
                 .isChatMessagesButtonDisplayed();
-        Assert.assertTrue(isChatMessagesButtonDisplayed, "\"Messages\" button from chat does not displayed!");
+        Assert.assertTrue(isChatMessagesButtonDisplayed, "Failed to load chat window!");
     }
 }

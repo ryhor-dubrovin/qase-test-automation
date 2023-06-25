@@ -25,6 +25,7 @@ public class ProjectsPage extends BasePage {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }
     public boolean isChatMessagesButtonDisplayed() {
+        driver.switchTo().frame(chatFrame);
         return waitVisibilityOf(chatMessagesButton).isDisplayed();
     }
     public ProjectsPage clickCreateNewProjectButton() {
