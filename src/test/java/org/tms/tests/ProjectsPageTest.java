@@ -19,31 +19,31 @@ public class ProjectsPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-//    @Test
-//    public void createNewProjectTest() {
-//        User user = new User(System.getProperty("email"), System.getProperty("password"));
-//        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-//        boolean isCreateNewCaseButtonDisplayed = projectsPageService
-//                .createNewProject()
-//                .isCreateNewCaseButtonDisplayed();
-//        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
-//                "Failed to create new project!");
-//    }
     @Test
-    public void createAndDeleteProjectTest() {
+    public void createNewProjectTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        projectsPageService.createNewProject();
-        driver.get(PROJECTS_PAGE);
-        projectsPageService.deleteProject(2);
+        boolean isCreateNewCaseButtonDisplayed = projectsPageService
+                .createNewProject()
+                .isCreateNewCaseButtonDisplayed();
+        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
+                "Failed to create new project!");
     }
 //    @Test
-//    public void openChatTest() {
+//    public void createAndDeleteProjectTest() {
 //        User user = new User(System.getProperty("email"), System.getProperty("password"));
 //        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-//        boolean isChatMessagesButtonDisplayed = projectsPageService
-//                .clickChatButton()
-//                .isChatMessagesButtonDisplayed();
-//        Assert.assertTrue(isChatMessagesButtonDisplayed, "Failed to load chat window!");
+//        projectsPageService.createNewProject();
+//        driver.get(PROJECTS_PAGE);
+//        projectsPageService.deleteProject(2);
 //    }
+    @Test
+    public void openChatTest() {
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
+        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
+        boolean isChatMessagesButtonDisplayed = projectsPageService
+                .clickChatButton()
+                .isChatMessagesButtonDisplayed();
+        Assert.assertTrue(isChatMessagesButtonDisplayed, "Failed to load chat window!");
+    }
 }

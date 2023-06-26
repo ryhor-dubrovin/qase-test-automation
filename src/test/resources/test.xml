@@ -4,11 +4,11 @@
     <listeners>
         <listener class-name="org.tms.utils.AnnotationTransformer"/>
     </listeners>
-<!--    <test name="Login Page Test">-->
-<!--        <classes>-->
-<!--            <class name="org.tms.tests.LoginPageTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Login Page Test">
+        <classes>
+            <class name="org.tms.tests.LoginPageTest"/>
+        </classes>
+    </test>
     <test name="Projects Page Test">
         <classes>
             <class name="org.tms.tests.ProjectsPageTest"/>

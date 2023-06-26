@@ -16,11 +16,11 @@ public class LoginPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-//    @Test
-//    public void loginWithUserTest() {
-//        User user = new User(System.getProperty("email"), System.getProperty("password"));
-//        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-//        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
-//                "\"Create new project\" button does not displayed!");
-//    }
+    @Test
+    public void loginWithUserTest() {
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
+        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
+        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
+                "\"Create new project\" button does not displayed!");
+    }
 }
