@@ -5,8 +5,9 @@ import org.tms.pages.ProjectsPagePanel;
 import org.tms.utils.TestDataGenerator;
 
 public class ProjectsPageService {
+    private int projectIndex;
     private ProjectsPage projectsPage = new ProjectsPage();
-    private ProjectsPagePanel projectsPagePanel = new ProjectsPagePanel();
+    private ProjectsPagePanel projectsPagePanel = new ProjectsPagePanel(projectIndex);
 
     public boolean isCreateNewProjectButtonDisplayed() {
         return projectsPage.isCreateNewProjectButtonDisplayed();
@@ -27,8 +28,8 @@ public class ProjectsPageService {
                 .clickCreateProjectButton();
         return new SingleProjectPageService();
     }
-    public void deleteProject() {
-        projectsPagePanel.setIndex(2);
+    public void deleteProject(int projectIndex) {
+        this.projectIndex = projectIndex;
         projectsPagePanel.openProjectMenu().clickMenuDeleteButton().clickDeleteButton();
     }
 

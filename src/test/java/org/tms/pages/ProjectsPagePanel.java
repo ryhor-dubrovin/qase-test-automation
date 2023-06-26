@@ -21,9 +21,14 @@ public class ProjectsPagePanel extends BasePage {
     private WebElement menuDeleteButton = projectMenuDeleteButtons.get(projectIndex);
     @FindBy(xpath = "//span[text() = 'Delete project']")
     private WebElement deleteProjectButton;
-    public void setIndex(int projectIndex){
+
+    public ProjectsPagePanel(int projectIndex) {
         this.projectIndex = projectIndex;
     }
+
+//    public void setIndex(int projectIndex){
+//        this.projectIndex = projectIndex;
+//    }
     public SingleProjectPage openProject(){
         waitElementToBeClickable(projectButton).click();
         return new SingleProjectPage();
