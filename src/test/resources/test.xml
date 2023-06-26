@@ -4,14 +4,19 @@
     <listeners>
         <listener class-name="org.tms.utils.AnnotationTransformer"/>
     </listeners>
-    <test name="Login Page Test">
+<!--    <test name="Login Page Test">-->
+<!--        <classes>-->
+<!--            <class name="org.tms.tests.LoginPageTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Projects Page Test">-->
+<!--        <classes>-->
+<!--            <class name="org.tms.tests.ProjectsPageTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Create And Delete Project Test">
         <classes>
-            <class name="org.tms.tests.LoginPageTest"/>
-        </classes>
-    </test>
-    <test name="Projects Page Test">
-        <classes>
-            <class name="org.tms.tests.ProjectsPageTest"/>
+            <class name="org.tms.tests.CreateAndDeleteProjectTest"/>
         </classes>
     </test>
 </suite>

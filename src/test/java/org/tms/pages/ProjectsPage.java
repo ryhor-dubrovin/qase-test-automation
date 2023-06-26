@@ -21,29 +21,56 @@ public class ProjectsPage extends BasePage {
     private WebElement chatFrame;
     @FindBy(xpath = "//button[@aria-label = 'Messages']")
     private WebElement chatMessagesButton;
+
+
+    @FindBy(xpath = "//a[@class='defect-title']")
+    private List<WebElement> projectButtons;
+    @FindBy(xpath = "//a[@class='defect-title']/ancestor::td/following-sibling::td[5]/div/a")
+    private List<WebElement> projectMenuButtons;
+    @FindBy(xpath = "//button[text() = 'Delete']")
+    private List<WebElement> projectMenuDeleteButtons;
+
+
     private List<ProjectsPagePanel> projectsPanels;
+
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }
+
     public boolean isChatMessagesButtonDisplayed() {
         driver.switchTo().frame(chatFrame);
         return waitVisibilityOf(chatMessagesButton).isDisplayed();
     }
+
     public ProjectsPage clickCreateNewProjectButton() {
         waitElementToBeClickable(createNewProjectButton).click();
         return this;
     }
+
     public ProjectsPage clickChatButton() {
         waitElementToBeClickable(chatButton).click();
         return this;
     }
+
     public void clickCreateProjectButton() {
         waitElementToBeClickable(createProjectButton).click();
 //        return new SingleProjectPage();
     }
+
     public ProjectsPage fillInProjectNameField(String projectName) {
         waitVisibilityOf(projectNameField).sendKeys(projectName);
         return this;
     }
+
+//    public int getProjectIndexByName(String projectName) {
+//        int index = 0;
+//        for (WebElement button : this.getProjectButtons()) {
+//            if (button.getText().equals(projectName)) {
+//                return index;
+//            }
+//            index++;
+//        }
+//        return -1;
+//    }
 
 }
