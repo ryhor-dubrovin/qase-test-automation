@@ -1,4 +1,4 @@
-package org.tms.pages;
+package org.tms.ui.pages;
 
 import lombok.Getter;
 import org.openqa.selenium.WebElement;

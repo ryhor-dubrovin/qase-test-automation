@@ -1,11 +1,11 @@
-package org.tms.tests;
+package org.tms.ui.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.model.User;
-import org.tms.services.LoginPageService;
-import org.tms.services.ProjectsPageService;
+import org.tms.ui.model.User;
+import org.tms.ui.services.LoginPageService;
+import org.tms.ui.services.ProjectsPageService;
 
 public class LoginPageTest extends BaseTest {
 

@@ -1,4 +1,4 @@
-package org.tms.utils;
+package org.tms.utils.tools;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

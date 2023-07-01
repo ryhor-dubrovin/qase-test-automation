@@ -1,7 +1,7 @@
-package org.tms.services;
+package org.tms.ui.services;
 
-import org.tms.model.User;
-import org.tms.pages.LoginPage;
+import org.tms.ui.model.User;
+import org.tms.ui.pages.LoginPage;
 
 public class LoginPageService {
     //business actions

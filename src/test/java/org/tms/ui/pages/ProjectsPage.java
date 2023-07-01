@@ -1,4 +1,4 @@
-package org.tms.pages;
+package org.tms.ui.pages;
 
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
@@ -29,9 +29,11 @@ public class ProjectsPage extends BasePage {
     private List<WebElement> projectMenuButtons;
     @FindBy(xpath = "//button[text() = 'Delete']")
     private List<WebElement> projectMenuDeleteButtons;
+    @FindBy(xpath = "//span[text() = 'Delete project']")
+    private WebElement deleteProjectButton;
 
 
-    private List<ProjectsPagePanel> projectsPanels;
+//    private List<ProjectsPagePanel> projectsPanels;
 
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();

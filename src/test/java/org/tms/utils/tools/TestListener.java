@@ -1,12 +1,11 @@
-package org.tms.utils;
+package org.tms.utils.tools;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.tms.driver.DriverSingleton;
+import org.tms.ui.driver.DriverSingleton;
 
 import java.util.concurrent.TimeUnit;
 

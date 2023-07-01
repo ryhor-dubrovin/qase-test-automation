@@ -1,19 +1,14 @@
-package org.tms.tests;
+package org.tms.ui.tests;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.model.User;
-import org.tms.pages.SingleProjectPage;
-import org.tms.services.LoginPageService;
-import org.tms.services.ProjectsPageService;
-import org.tms.services.SingleProjectPageService;
-import org.tms.utils.TestDataGenerator;
+import org.tms.ui.model.User;
+import org.tms.ui.services.LoginPageService;
+import org.tms.ui.services.ProjectsPageService;
+import org.tms.ui.services.SingleProjectPageService;
 
-import static org.tms.constants.Urls.PROJECTS_PAGE;
-
-public class ProjectsPageTest extends BaseTest {
+public class CreateAndDeleteProjectTest extends BaseTest{
     private LoginPageService loginPageService;
 
     @BeforeClass
@@ -21,26 +16,25 @@ public class ProjectsPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
+//    private String projectName;
 //    @Test
 //    public void createNewProjectTest() {
 //        User user = new User(System.getProperty("email"), System.getProperty("password"));
 //        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
 //        SingleProjectPageService singleProjectPageService = new SingleProjectPageService();
-//        projectsPageService
-//                .createNewProject();
+//        projectName = projectsPageService.createNewProject();
 //        Assert.assertTrue(singleProjectPageService.isCreateNewCaseButtonDisplayed(),
 //                "Failed to create new project!");
 //    }
+
 //    @Test
-//    public void createNewProjectTest() {
+//    public void deleteNewProject() {
 //        User user = new User(System.getProperty("email"), System.getProperty("password"));
 //        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-//        boolean isCreateNewCaseButtonDisplayed = projectsPageService
-//                .createNewProject()
-//                .isCreateNewCaseButtonDisplayed();
-//        Assert.assertTrue(isCreateNewCaseButtonDisplayed,
-//                "Failed to create new project!");
+//        int projectIndex = projectsPageService.getProjectIndexByName(projectName);
+//        projectsPageService.deleteProject(projectIndex);
 //    }
+
 //    @Test
 //    public void createAndDeleteProjectTest() {
 //        User user = new User(System.getProperty("email"), System.getProperty("password"));
@@ -49,13 +43,4 @@ public class ProjectsPageTest extends BaseTest {
 //        driver.get(PROJECTS_PAGE);
 //        projectsPageService.deleteProject(2);
 //    }
-    @Test
-    public void openChatTest() {
-        User user = new User(System.getProperty("email"), System.getProperty("password"));
-        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        boolean isChatMessagesButtonDisplayed = projectsPageService
-                .clickChatButton()
-                .isChatMessagesButtonDisplayed();
-        Assert.assertTrue(isChatMessagesButtonDisplayed, "Failed to load chat window!");
-    }
 }

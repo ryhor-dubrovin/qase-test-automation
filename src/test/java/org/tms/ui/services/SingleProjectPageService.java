@@ -1,6 +1,6 @@
-package org.tms.services;
+package org.tms.ui.services;
 
-import org.tms.pages.SingleProjectPage;
+import org.tms.ui.pages.SingleProjectPage;
 
 public class SingleProjectPageService {
     private SingleProjectPage singleProjectPage = new SingleProjectPage();

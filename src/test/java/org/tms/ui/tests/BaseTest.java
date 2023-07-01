@@ -1,11 +1,11 @@
-package org.tms.tests;
+package org.tms.ui.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import org.tms.driver.DriverSingleton;
-import org.tms.utils.TestListener;
+import org.tms.ui.driver.DriverSingleton;
+import org.tms.utils.tools.TestListener;
 
 @Listeners(TestListener.class)
 public class BaseTest {

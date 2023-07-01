@@ -1,4 +1,4 @@
-package org.tms.utils;
+package org.tms.utils.tools;
 
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;

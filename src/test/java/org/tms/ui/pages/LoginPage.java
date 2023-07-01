@@ -1,9 +1,8 @@
-package org.tms.pages;
+package org.tms.ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import static org.tms.constants.Urls.LOGIN_PAGE;
+import org.tms.utils.constants.Urls;
 
 public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
@@ -14,7 +13,7 @@ public class LoginPage extends BasePage {
     private WebElement singInButton;
 
     public LoginPage openPage() {
-        driver.get(LOGIN_PAGE);
+        driver.get(Urls.LOGIN_PAGE);
         return this;
     }
 

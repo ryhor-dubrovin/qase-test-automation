@@ -1,4 +1,4 @@
-package org.tms.model;
+package org.tms.ui.model;
 
 public class User {
     //business model
