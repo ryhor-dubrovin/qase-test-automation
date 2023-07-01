@@ -13,4 +13,7 @@ public class ProjectAdapter extends BaseAdapter{
     public Response createProject(Project project){
         return post(PROJECT_URI, gsonConverter.toJson(project));
     }
+    public Response deleteProject(String projectCode) {
+        return delete(PROJECT_URI + "/" + projectCode);
+    }
 }
