@@ -33,8 +33,6 @@ public class ProjectsPage extends BasePage {
     private WebElement deleteProjectButton;
 
 
-//    private List<ProjectsPagePanel> projectsPanels;
-
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }
@@ -64,15 +62,21 @@ public class ProjectsPage extends BasePage {
         return this;
     }
 
-//    public int getProjectIndexByName(String projectName) {
-//        int index = 0;
-//        for (WebElement button : this.getProjectButtons()) {
-//            if (button.getText().equals(projectName)) {
-//                return index;
-//            }
-//            index++;
-//        }
-//        return -1;
-//    }
+    /*
+    private List<ProjectsPagePanel> projectsPanels;
+
+    public int getProjectIndexByName(String projectName) {
+        int index = 0;
+        for (WebElement button : this.getProjectButtons()) {
+            if (button.getText().equals(projectName)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+     */
+
 
 }

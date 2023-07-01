@@ -4,7 +4,6 @@ import org.tms.ui.model.User;
 import org.tms.ui.pages.LoginPage;
 
 public class LoginPageService {
-    //business actions
     private LoginPage loginPage = new LoginPage();
 
     public ProjectsPageService loginWithUser(User user) {
