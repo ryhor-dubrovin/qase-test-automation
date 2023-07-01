@@ -16,6 +16,9 @@ public class ProjectsPagePanel extends BasePage {
 //    private WebElement projectButton = projectButtons.get(projectIndex);
 //    private WebElement projectMenuButton = projectMenuButtons.get(projectIndex);
 //    private WebElement menuDeleteButton = projectMenuDeleteButtons.get(projectIndex);
+
+    /*     maybe code
+
     private WebElement projectButton;
     private WebElement projectMenuButton;
     private WebElement menuDeleteButton;
@@ -28,6 +31,8 @@ public class ProjectsPagePanel extends BasePage {
         this.projectMenuButton = projectsPage.getProjectMenuButtons().get(index);
         this.menuDeleteButton = projectsPage.getProjectMenuDeleteButtons().get(index);
     }
+
+     */
 
 
 //    public ProjectsPagePanel(int projectIndex) {

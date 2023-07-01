@@ -8,7 +8,7 @@ import static org.tms.utils.constants.Urls.BASE_URL;
 
 public class BaseAdapter {
     public static final String TOKEN_VALUE = "72b2653608fade7ce5de34b2db36aa9eafd86826f56f6517ffd90c084b383528";
-    public Response get(String uri) {
+    protected Response get(String uri) {
         return
                 given()
                         .log().all()
@@ -20,7 +20,7 @@ public class BaseAdapter {
                         .extract().response();
     }
 
-    public Response post(String uri, String body) {
+    protected Response post(String uri, String body) {
         return
                 given()
                         .log().all()
