@@ -6,17 +6,12 @@
     </listeners>
     <test name="Login Page Test">
         <classes>
-            <class name="org.tms.ui.tests.LoginPageTest"/>
+            <class name="org.tms.ui.tests.LoginTest"/>
         </classes>
     </test>
     <test name="Projects Page Test">
         <classes>
-            <class name="org.tms.ui.tests.ProjectsPageTest"/>
+            <class name="org.tms.ui.tests.CreateAndDeleteProjectTest"/>
         </classes>
     </test>
-<!--    <test name="Create And Delete Project Test">-->
-<!--        <classes>-->
-<!--            <class name="org.tms.ui.tests.CreateAndDeleteProjectTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>

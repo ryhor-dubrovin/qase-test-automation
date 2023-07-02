@@ -6,14 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.ui.model.User;
-import org.tms.ui.pages.SingleProjectPage;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 import org.tms.ui.services.SingleProjectPageService;
 import org.tms.utils.tools.TestDataGenerator;
 
 @Story("Projects tests")
-public class ProjectsPageTest extends BaseTest {
+public class CreateAndDeleteProjectTest extends BaseTest {
     private LoginPageService loginPageService;
     private static final String projectName = TestDataGenerator.createProjectName();
     @BeforeClass
@@ -31,7 +30,7 @@ public class ProjectsPageTest extends BaseTest {
         boolean isCreateNewCaseButtonDisplayed = singleProjectPageService
                 .isCreateNewCaseButtonDisplayed();
         Assert.assertTrue(isCreateNewCaseButtonDisplayed,
-                "Failed to create new project!");
+                "Failed to create a new project!");
     }
 
     @Test(dependsOnMethods = "createNewProjectTest", description = "Delete the project")
@@ -42,6 +41,7 @@ public class ProjectsPageTest extends BaseTest {
                 .openPage()
                 .getProjectIndex(projectName);
         projectsPageService.deleteProject(projectIndex);
-        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed());
+        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
+                "Failed to delete the project!");
     }
 }

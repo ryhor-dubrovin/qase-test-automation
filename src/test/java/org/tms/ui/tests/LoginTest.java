@@ -10,7 +10,7 @@ import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
 @Story("Login tests")
-public class LoginPageTest extends BaseTest {
+public class LoginTest extends BaseTest {
 
     private LoginPageService loginPageService;
 
@@ -25,6 +25,6 @@ public class LoginPageTest extends BaseTest {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
         Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
-                "\"Create new project\" button does not displayed!");
+                "Failed to log in user!");
     }
 }
