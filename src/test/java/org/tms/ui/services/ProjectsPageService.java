@@ -57,37 +57,4 @@ public class ProjectsPageService {
         return getProjectIndex(projectName) > 0;
     }
 
-
-    /*
-    private int projectIndex;
-    private ProjectsPagePanel projectsPagePanel = new ProjectsPagePanel(projectIndex);
-
-    public String createNewProject() {
-        String projectName = TestDataGenerator.getTestProjectName();
-        projectsPage
-                .clickCreateNewProjectButton()
-                .fillInProjectNameField(projectName)
-                .clickCreateProjectButton();
-        return projectName;
-    }
-
-    public void deleteProject(int projectIndex) {
-        projectsPage.getProjectsPanels().get(projectIndex).getProjectMenuButton().click();
-        projectsPage.getProjectsPanels().get(projectIndex).getMenuDeleteButton().click();
-        projectsPage.getProjectsPanels().get(projectIndex).getDeleteProjectButton().click();
-    }
-
-    public int getProjectIndexByName(String projectName) {
-        int index = 0;
-        for (WebElement button : projectsPage.getProjectButtons()) {
-            if (button.getText().equals(projectName)) {
-                return index;
-            }
-            index++;
-        }
-        return -1;
-    }
-
-     */
-
 }

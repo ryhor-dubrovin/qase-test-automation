@@ -19,9 +19,4 @@
 <!--            <class name="org.tms.ui.tests.ChatTest"/>-->
 <!--        </classes>-->
 <!--    </test>-->
-<!--    <test name="Create And Delete Project Test">-->
-<!--        <classes>-->
-<!--            <class name="org.tms.ui.tests.CreateAndDeleteProjectTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>

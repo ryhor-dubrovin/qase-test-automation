@@ -34,7 +34,8 @@ public class ProjectsPageTest extends BaseTest {
                 "Failed to create new project!");
     }
 
-    @Test(dependsOnMethods = "createNewProjectTest")
+    @Test(dependsOnMethods = "createNewProjectTest", description = "Delete the project")
+    @Description("Delete the Project")
     public void deleteProjectTest() {
         ProjectsPageService projectsPageService = new ProjectsPageService();
         int projectIndex = projectsPageService
@@ -43,25 +44,4 @@ public class ProjectsPageTest extends BaseTest {
         projectsPageService.deleteProject(projectIndex);
         Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed());
     }
-
-    /*
-    @Test
-    public void createNewProjectTest() {
-        User user = new User(System.getProperty("email"), System.getProperty("password"));
-        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        SingleProjectPageService singleProjectPageService = new SingleProjectPageService();
-        projectsPageService
-                .createNewProject();
-        Assert.assertTrue(singleProjectPageService.isCreateNewCaseButtonDisplayed(),
-                "Failed to create new project!");
-    }
-    @Test
-    public void createAndDeleteProjectTest() {
-        User user = new User(System.getProperty("email"), System.getProperty("password"));
-        ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
-        projectsPageService.createNewProject();
-        driver.get(PROJECTS_PAGE);
-        projectsPageService.deleteProject(2);
-    }
-     */
 }
