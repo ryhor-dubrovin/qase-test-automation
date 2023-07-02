@@ -1,5 +1,7 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -7,6 +9,7 @@ import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
+@Story("Projects tests")
 public class ProjectsPageTest extends BaseTest {
     private LoginPageService loginPageService;
 
@@ -26,6 +29,7 @@ public class ProjectsPageTest extends BaseTest {
 //                "Failed to create new project!");
 //    }
     @Test
+    @Description("Create new project")
     public void createNewProjectTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
@@ -44,6 +48,7 @@ public class ProjectsPageTest extends BaseTest {
 //        projectsPageService.deleteProject(2);
 //    }
     @Test
+    @Description("Open Chat")
     public void openChatTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);

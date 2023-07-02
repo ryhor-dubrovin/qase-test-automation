@@ -1,5 +1,7 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -7,6 +9,7 @@ import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
+@Story("Login tests")
 public class LoginPageTest extends BaseTest {
 
     private LoginPageService loginPageService;
@@ -17,6 +20,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
+    @Description("Login with user")
     public void loginWithUserTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
