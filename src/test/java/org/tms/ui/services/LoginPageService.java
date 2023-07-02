@@ -7,7 +7,7 @@ import org.tms.ui.pages.LoginPage;
 public class LoginPageService {
     private LoginPage loginPage = new LoginPage();
 
-    @Step("Login")
+    @Step("Logging in with the user.")
     public ProjectsPageService loginWithUser(User user) {
         loginPage
                 .openPage()

@@ -13,25 +13,25 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement singInButton;
 
-    @Step("Open Login Page")
+    @Step("Opening the Login Page.")
     public LoginPage openPage() {
         driver.get(Urls.LOGIN_PAGE);
         return this;
     }
 
-    @Step("Enter email")
+    @Step("Entering the email.")
     public LoginPage fillInEmail(String email) {
         waitVisibilityOf(emailField).sendKeys(email);
         return this;
     }
 
-    @Step("Enter password")
+    @Step("Entering the password.")
     public LoginPage fillInPassword(String password) {
         waitVisibilityOf(passwordField).sendKeys(password);
         return this;
     }
 
-    @Step("Click \"Sing In\" button")
+    @Step("Clicking the \"Sing In\" button.")
     public void clickSingInButton() {
         waitElementToBeClickable(singInButton).click();
     }
