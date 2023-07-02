@@ -1,5 +1,6 @@
 package org.tms.ui.pages;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,30 +34,36 @@ public class ProjectsPage extends BasePage {
     private WebElement deleteProjectButton;
 
 
+    @Step("Check is \"Create New Project\" button displayed")
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
     }
 
+    @Step("Check is chat \"Message\" button displayed")
     public boolean isChatMessagesButtonDisplayed() {
         driver.switchTo().frame(chatFrame);
         return waitVisibilityOf(chatMessagesButton).isDisplayed();
     }
 
+    @Step("Click \"Create New Project\" button")
     public ProjectsPage clickCreateNewProjectButton() {
         waitElementToBeClickable(createNewProjectButton).click();
         return this;
     }
 
+    @Step("Click \"Chat\" button")
     public ProjectsPage clickChatButton() {
         waitElementToBeClickable(chatButton).click();
         return this;
     }
 
+    @Step("Click \"Create Project\" Button")
     public void clickCreateProjectButton() {
         waitElementToBeClickable(createProjectButton).click();
 //        return new SingleProjectPage();
     }
 
+    @Step("Enter Project Name")
     public ProjectsPage fillInProjectNameField(String projectName) {
         waitVisibilityOf(projectNameField).sendKeys(projectName);
         return this;
