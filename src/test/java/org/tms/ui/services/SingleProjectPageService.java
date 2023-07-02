@@ -8,4 +8,7 @@ public class SingleProjectPageService {
     public boolean isCreateNewCaseButtonDisplayed() {
         return singleProjectPage.isCreateNewCaseButtonDisplayed();
     }
+    public String getProjectCode() {
+        return singleProjectPage.getProjectCode().getText();
+    }
 }

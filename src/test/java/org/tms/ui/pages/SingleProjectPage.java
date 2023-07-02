@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 public class SingleProjectPage extends BasePage {
     @FindBy(xpath = "//span[text() = 'Create new case']")
     private WebElement createNewCaseButton;
+    @FindBy(xpath = "//h1/text()[1]")
+    private WebElement projectCode;
 
     @Step("Check is \"Create New Case\" button displayed")
     public boolean isCreateNewCaseButtonDisplayed() {

@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.tms.utils.constants.Urls;
 
 import java.util.List;
 
@@ -34,6 +35,11 @@ public class ProjectsPage extends BasePage {
     private WebElement deleteProjectButton;
 
 
+    @Step("Open Projects Page")
+    public ProjectsPage openPage() {
+        driver.get(Urls.PROJECTS_PAGE);
+        return this;
+    }
     @Step("Check is \"Create New Project\" button displayed")
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();

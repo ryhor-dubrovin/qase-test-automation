@@ -1,7 +1,7 @@
 package org.tms.ui.services;
 
+import org.openqa.selenium.WebElement;
 import org.tms.ui.pages.ProjectsPage;
-import org.tms.utils.tools.TestDataGenerator;
 
 public class ProjectsPageService {
 
@@ -19,13 +19,34 @@ public class ProjectsPageService {
         return this;
     }
 
-    public SingleProjectPageService createNewProject() {
+    public ProjectsPageService openPage() {
+        projectsPage.openPage();
+        return this;
+    }
+    public SingleProjectPageService createNewProject(String projectName) {
         projectsPage
                 .clickCreateNewProjectButton()
-                .fillInProjectNameField(TestDataGenerator.createProjectName())
+                .fillInProjectNameField(projectName)
                 .clickCreateProjectButton();
         return new SingleProjectPageService();
     }
+    public int getProjectIndex(String projectName) {
+        int index = 0;
+        for (WebElement button : projectsPage.getProjectButtons()) {
+            if (button.getText().equals(projectName)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+    public ProjectsPageService deleteProject(int index) {
+        projectsPage.getProjectMenuButtons().get(index).click();
+        projectsPage.getProjectMenuDeleteButtons().get(index).click();
+        projectsPage.getDeleteProjectButton().click();
+        return this;
+    }
+
 
     /*
     private int projectIndex;
