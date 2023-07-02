@@ -9,11 +9,13 @@ public class ProjectAdapter extends BaseAdapter{
     public Response getProjects() {
         return get(PROJECT_URI);
     }
-
+    public Response getProjectByCode(String projectCode) {
+        return get(PROJECT_URI + projectCode);
+    }
     public Response createProject(Project project){
         return post(PROJECT_URI, gsonConverter.toJson(project));
     }
     public Response deleteProject(String projectCode) {
-        return delete(PROJECT_URI + "/" + projectCode);
+        return delete(PROJECT_URI + projectCode);
     }
 }

@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @Builder
 public class Project {
-    public String title;
-    public String code;
-    public String description;
-    public String access;
-    public String group;
+    private String title;
+    private String code;
+    private String description;
+    private String access;
+    private String group;
 }
