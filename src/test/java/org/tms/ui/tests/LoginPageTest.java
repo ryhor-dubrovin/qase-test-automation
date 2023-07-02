@@ -19,7 +19,7 @@ public class LoginPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test
+    @Test(description = "Login with user")
     @Description("Login with user")
     public void loginWithUserTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));

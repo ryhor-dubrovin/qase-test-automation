@@ -28,7 +28,7 @@ public class ProjectsPageTest extends BaseTest {
 //        Assert.assertTrue(singleProjectPageService.isCreateNewCaseButtonDisplayed(),
 //                "Failed to create new project!");
 //    }
-    @Test
+    @Test(description = "Create new project")
     @Description("Create new project")
     public void createNewProjectTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
@@ -47,7 +47,7 @@ public class ProjectsPageTest extends BaseTest {
 //        driver.get(PROJECTS_PAGE);
 //        projectsPageService.deleteProject(2);
 //    }
-    @Test
+    @Test(description = "Open Chat")
     @Description("Open Chat")
     public void openChatTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
