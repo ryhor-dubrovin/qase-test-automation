@@ -8,7 +8,7 @@ public class Urls {
 
     public static final String BASE_URL = "https://api.qase.io/v1/";
     public static final String PROJECT_URI = "project/";
-    public static final String SUITE_URI = "suite/%s";
+    public static final String SUITE_URI = "suite/";
     public static final String CASE_URI = "case/";
 
     private Urls() {

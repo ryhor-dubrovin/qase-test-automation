@@ -7,10 +7,10 @@ import static org.tms.utils.constants.Urls.SUITE_URI;
 
 public class SuiteAdapter extends BaseAdapter {
     public Response createSuite(String projectCode, Suite suite) {
-        return post(String.format(SUITE_URI, projectCode), gsonConverter.toJson(suite));
+        return post(SUITE_URI + projectCode, gsonConverter.toJson(suite));
     }
     public Response deleteSuite(String projectCode,int suiteId) {
         String uri = projectCode + "/" + suiteId;
-        return delete(String.format(SUITE_URI,uri));
+        return delete(SUITE_URI + uri);
     }
 }
