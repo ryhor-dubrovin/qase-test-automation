@@ -30,11 +30,11 @@ public class CasesTest {
     @Test(dependsOnMethods = "createCase")
     public void getCase() {
         boolean responseStatus = new CaseAdapter().getCaseById(PROJECT_CODE, caseId).body().path("status");
-        Assert.assertTrue(responseStatus, "GET /project/" + PROJECT_CODE + "/" + caseId + " failed!");
+        Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId ));
     }
     @Test(dependsOnMethods = {"createCase", "getCase"})
     public void deleteCase() {
         boolean responseStatus = new CaseAdapter().deleteCase(PROJECT_CODE, caseId).body().path("status");
-        Assert.assertTrue(responseStatus, "DELETE /project/" + PROJECT_CODE + "/" + caseId + " failed!");
+        Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId ));
     }
 }

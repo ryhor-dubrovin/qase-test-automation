@@ -39,7 +39,7 @@ public class ProjectWithSuiteTest {
     @Test(dependsOnMethods = "createSuiteTest")
     public void deleteSuiteTest() {
         boolean responseStatus = new SuiteAdapter().deleteSuite(projectCode,suiteId).body().path("status");
-        Assert.assertTrue(responseStatus, "DELETE /suite/" + projectCode + "/" + suiteId + " failed!");
+        Assert.assertTrue(responseStatus, String.format("DELETE /suite/%s/%d failed!", projectCode, suiteId));
     }
     @Test(dependsOnMethods = "createProjectTest", priority = 1)
     public void deleteProjectTest() {
