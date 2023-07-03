@@ -10,6 +10,7 @@ public class Urls {
     public static final String PROJECT_URI = "project/";
     public static final String SUITE_URI = "suite/";
     public static final String CASE_URI = "case/";
+    public static final String DEFECT_URI = "defect/";
 
     private Urls() {
     }
