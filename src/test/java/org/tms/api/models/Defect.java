@@ -11,4 +11,5 @@ public class Defect {
     @SerializedName("actual_result")
     private String actualResult;
     private int severity; // 6 - 1 >> + 0
+
 }
