@@ -7,7 +7,8 @@ import org.tms.api.adapters.DefectAdapter;
 import org.tms.api.models.Defect;
 import org.tms.utils.tools.TestDataGenerator;
 
-import static org.tms.api.models.Defect.*;
+import static org.tms.utils.constants.DefectSeverity.*;
+
 
 public class DefectTest {
     private static final String projectName = "DEMO";
@@ -24,24 +25,28 @@ public class DefectTest {
         boolean responseStatus = defectAdapter.getDefects(projectName).body().path("status");
         Assert.assertTrue(responseStatus, "GET /defect/" + projectName + " failed!");
     }
+
     @Test
     public void createDefectTest() {
-        Response response = defectAdapter.createDefect(projectName,defect);
+        Response response = defectAdapter.createDefect(projectName, defect);
         boolean responseStatus = response.body().path("status");
         defectId = response.body().path("result.id");
         Assert.assertTrue(responseStatus, "POST /defect/" + projectName + " failed!");
     }
+
     @Test(dependsOnMethods = "createDefectTest")
     public void updateDefectTest() {
         defect.setSeverity(TRIVIAL_DEFECT_SEVERITY_INT);
         boolean responseStatus = defectAdapter.updateDefect(projectName, defectId, defect).body().path("status");
         Assert.assertTrue(responseStatus, String.format("PATCH /defect/%s/%d failed!", projectName, defectId));
     }
+
     @Test(dependsOnMethods = "updateDefectTest")
     public void getDefect() {
-        boolean responseStatus = defectAdapter.getDefect(projectName,defectId).body().path("status");
+        boolean responseStatus = defectAdapter.getDefect(projectName, defectId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("GET /defect/%s/%d failed!", projectName, defectId));
     }
+
     @Test(dependsOnMethods = "getDefect")
     public void deleteDefect() {
         boolean responseStatus = defectAdapter.deleteDefect(projectName, defectId).body().path("status");

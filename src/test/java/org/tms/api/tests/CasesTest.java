@@ -12,6 +12,7 @@ public class CasesTest {
     private static final int CASES_IN_PROJECT = 10;
     private int caseId;
     private CaseAdapter caseAdapter = new CaseAdapter();
+
     @Test(priority = -1)
     public void getCases() {
         int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
@@ -28,14 +29,16 @@ public class CasesTest {
         boolean responseStatus = response.body().path("status");
         Assert.assertTrue(responseStatus, "POST /case/" + PROJECT_CODE + " failed!");
     }
+
     @Test(dependsOnMethods = "createCase")
     public void getCase() {
         boolean responseStatus = caseAdapter.getCaseById(PROJECT_CODE, caseId).body().path("status");
-        Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId ));
+        Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId));
     }
+
     @Test(dependsOnMethods = {"createCase", "getCase"})
     public void deleteCase() {
         boolean responseStatus = caseAdapter.deleteCase(PROJECT_CODE, caseId).body().path("status");
-        Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId ));
+        Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId));
     }
 }

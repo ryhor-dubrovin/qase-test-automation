@@ -9,6 +9,7 @@ import static java.net.HttpURLConnection.HTTP_OK;
 
 public class ProjectsTest {
     private String projectCode;
+
     @Test
     public void getProjectsTest() {
         Response response = new ProjectAdapter().getProjects();
@@ -16,10 +17,11 @@ public class ProjectsTest {
         projectCode = response.body().path("result.entities[0].code");
         Assert.assertEquals(statusCode, HTTP_OK, "GET /project return HTTP " + statusCode);
     }
+
     @Test(dependsOnMethods = "getProjectsTest")
     public void getProjectByCodeTest() {
         boolean responseStatus = new ProjectAdapter().getProjectByCode(projectCode).body().path("status");
-        Assert.assertTrue(responseStatus,"GET /project/" + projectCode + " failed!");
+        Assert.assertTrue(responseStatus, "GET /project/" + projectCode + " failed!");
     }
 
 }

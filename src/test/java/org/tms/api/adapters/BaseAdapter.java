@@ -16,12 +16,13 @@ public class BaseAdapter {
                 given()
                         .log().all()
                         .header(TOKEN_NAME, TOKEN_VALUE)
-                .when()
+                        .when()
                         .get(BASE_URL + uri)
-                .then()
+                        .then()
                         .log().all()
                         .extract().response();
     }
+
     protected Response post(String uri, String body) {
         return
                 given()
@@ -29,24 +30,26 @@ public class BaseAdapter {
                         .header(TOKEN_NAME, TOKEN_VALUE)
                         .header(CONTENT_TYPE, CONTENT_TYPE_JSON)
                         .body(body)
-                .when()
+                        .when()
                         .post(BASE_URL + uri)
-                .then()
+                        .then()
                         .log().all()
                         .extract().response();
     }
+
     protected Response delete(String uri) {
         return
                 given()
                         .log().all()
                         .header(TOKEN_NAME, TOKEN_VALUE)
                         //.header(CONTENT_TYPE, CONTENT_TYPE_JSON)
-                .when()
-                        .delete(BASE_URL+ uri)
-                .then()
+                        .when()
+                        .delete(BASE_URL + uri)
+                        .then()
                         .log().all()
                         .extract().response();
     }
+
     protected Response patch(String uri, String body) {
         return
                 given()
@@ -54,9 +57,9 @@ public class BaseAdapter {
                         .header(TOKEN_NAME, TOKEN_VALUE)
                         .header(CONTENT_TYPE, CONTENT_TYPE_JSON)
                         .body(body)
-                .when()
+                        .when()
                         .patch(BASE_URL + uri)
-                .then()
+                        .then()
                         .log().all()
                         .extract().response();
     }

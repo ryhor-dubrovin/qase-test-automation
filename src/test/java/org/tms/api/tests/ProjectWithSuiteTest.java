@@ -14,6 +14,7 @@ public class ProjectWithSuiteTest {
     private int suiteId;
     private ProjectAdapter projectAdapter = new ProjectAdapter();
     private SuiteAdapter suiteAdapter = new SuiteAdapter();
+
     @Test
     public void createProjectTest() {
         projectCode = TestDataGenerator.createProjectCode();
@@ -36,13 +37,15 @@ public class ProjectWithSuiteTest {
         suiteId = response.body().path("result.id");
         boolean responseStatus = response.body().path("status");
 
-        Assert.assertTrue(responseStatus, "POST /suite/"+ projectCode + " failed!");
+        Assert.assertTrue(responseStatus, "POST /suite/" + projectCode + " failed!");
     }
+
     @Test(dependsOnMethods = "createSuiteTest")
     public void deleteSuiteTest() {
-        boolean responseStatus = suiteAdapter.deleteSuite(projectCode,suiteId).body().path("status");
+        boolean responseStatus = suiteAdapter.deleteSuite(projectCode, suiteId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("DELETE /suite/%s/%d failed!", projectCode, suiteId));
     }
+
     @Test(dependsOnMethods = "createProjectTest", priority = 1)
     public void deleteProjectTest() {
         boolean responseStatus = projectAdapter.deleteProject(projectCode).body().path("status");
