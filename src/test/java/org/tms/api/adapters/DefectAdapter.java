@@ -13,13 +13,13 @@ public class DefectAdapter extends BaseAdapter {
     public Response createDefect(String projectCode, Defect defect) {
         return post(DEFECT_URI + projectCode, gsonConverter.toJson(defect));
     }
-    public Response updateDefect(String projectCode, int id, Defect defect) {
-        return patch(DEFECT_URI + projectCode+ "/" + id, gsonConverter.toJson(defect));
+    public Response updateDefect(String projectCode, int defectId, Defect defect) {
+        return patch(DEFECT_URI + projectCode+ "/" + defectId, gsonConverter.toJson(defect));
     }
-    public Response getDefect(String projectCode, int id) {
-        return get(DEFECT_URI + projectCode + "/" + id);
+    public Response getDefect(String projectCode, int defectId) {
+        return get(DEFECT_URI + projectCode + "/" + defectId);
     }
-    public Response deleteDefect(String projectCode, int id) {
-        return delete(DEFECT_URI + projectCode + "/" + id);
+    public Response deleteDefect(String projectCode, int defectId) {
+        return delete(DEFECT_URI + projectCode + "/" + defectId);
     }
 }

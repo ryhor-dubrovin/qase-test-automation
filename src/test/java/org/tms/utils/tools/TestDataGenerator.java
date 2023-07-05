@@ -17,8 +17,15 @@ public class TestDataGenerator {
     public static String createCaseTitle() {
         return "Case " + faker.lorem().word();
     }
+    public static String createDefectTitle() {
+        return "Defect " + faker.lorem().word();
+    }
     public static String createSuiteDescription() {
         return faker.lorem().sentence();
     }
+    public static String createDefectActualResult() {
+        return faker.lorem().sentence();
+    }
+
 
 }

@@ -12,6 +12,8 @@ import org.tms.utils.tools.TestDataGenerator;
 public class ProjectWithSuiteTest {
     private String projectCode;
     private int suiteId;
+    private ProjectAdapter projectAdapter = new ProjectAdapter();
+    private SuiteAdapter suiteAdapter = new SuiteAdapter();
     @Test
     public void createProjectTest() {
         projectCode = TestDataGenerator.createProjectCode();
@@ -19,7 +21,7 @@ public class ProjectWithSuiteTest {
                 .title(TestDataGenerator.createProjectName())
                 .code(projectCode)
                 .build();
-        String projectCodeFromResponse = new ProjectAdapter().createProject(project).body().path("result.code");
+        String projectCodeFromResponse = projectAdapter.createProject(project).body().path("result.code");
         Assert.assertEquals(projectCodeFromResponse, project.getCode(), "POST /project failed!");
     }
 
@@ -29,7 +31,7 @@ public class ProjectWithSuiteTest {
                 .title(TestDataGenerator.createSuiteTitle())
                 .description(TestDataGenerator.createSuiteDescription())
                 .build();
-        Response response = new SuiteAdapter().createSuite(projectCode, suite);
+        Response response = suiteAdapter.createSuite(projectCode, suite);
 
         suiteId = response.body().path("result.id");
         boolean responseStatus = response.body().path("status");
@@ -38,12 +40,12 @@ public class ProjectWithSuiteTest {
     }
     @Test(dependsOnMethods = "createSuiteTest")
     public void deleteSuiteTest() {
-        boolean responseStatus = new SuiteAdapter().deleteSuite(projectCode,suiteId).body().path("status");
+        boolean responseStatus = suiteAdapter.deleteSuite(projectCode,suiteId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("DELETE /suite/%s/%d failed!", projectCode, suiteId));
     }
     @Test(dependsOnMethods = "createProjectTest", priority = 1)
     public void deleteProjectTest() {
-        boolean responseStatus = new ProjectAdapter().deleteProject(projectCode).body().path("status");
+        boolean responseStatus = projectAdapter.deleteProject(projectCode).body().path("status");
         Assert.assertTrue(responseStatus, "DELETE /project/" + projectCode + " failed!");
     }
 }

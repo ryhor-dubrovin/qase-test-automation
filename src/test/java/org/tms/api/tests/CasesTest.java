@@ -11,9 +11,10 @@ public class CasesTest {
     private static final String PROJECT_CODE = "DEMO";
     private static final int CASES_IN_PROJECT = 10;
     private int caseId;
+    private CaseAdapter caseAdapter = new CaseAdapter();
     @Test(priority = -1)
     public void getCases() {
-        int totalCases = new CaseAdapter().getCases(PROJECT_CODE).body().path("result.total");
+        int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
         Assert.assertEquals(totalCases, CASES_IN_PROJECT, "Incorrect number of cases in DEMO project.");
     }
 
@@ -22,19 +23,19 @@ public class CasesTest {
         Case testCase = Case.builder()
                 .title(TestDataGenerator.createCaseTitle())
                 .build();
-        Response response = new CaseAdapter().createCase(PROJECT_CODE, testCase);
+        Response response = caseAdapter.createCase(PROJECT_CODE, testCase);
         caseId = response.body().path("result.id");
         boolean responseStatus = response.body().path("status");
         Assert.assertTrue(responseStatus, "POST /case/" + PROJECT_CODE + " failed!");
     }
     @Test(dependsOnMethods = "createCase")
     public void getCase() {
-        boolean responseStatus = new CaseAdapter().getCaseById(PROJECT_CODE, caseId).body().path("status");
+        boolean responseStatus = caseAdapter.getCaseById(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId ));
     }
     @Test(dependsOnMethods = {"createCase", "getCase"})
     public void deleteCase() {
-        boolean responseStatus = new CaseAdapter().deleteCase(PROJECT_CODE, caseId).body().path("status");
+        boolean responseStatus = caseAdapter.deleteCase(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId ));
     }
 }
