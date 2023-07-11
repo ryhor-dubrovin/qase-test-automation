@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Tests" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="org.tms.utils.tools.AnnotationTransformer"/>
+    </listeners>
+    <test name="Projects Test">
+        <classes>
+            <class name="org.tms.api.tests.ProjectsTest"/>
+        </classes>
+    </test>
+    <test name="Project With Suite Test">
+        <classes>
+            <class name="org.tms.api.tests.ProjectWithSuiteTest"/>
+        </classes>
+    </test>
+
+</suite>

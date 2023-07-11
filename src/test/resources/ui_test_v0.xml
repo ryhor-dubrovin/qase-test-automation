@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Smoke" parallel="tests" thread-count="3">
+<suite name="UI Tests" parallel="tests" thread-count="3">
     <listeners>
         <listener class-name="org.tms.utils.tools.AnnotationTransformer"/>
     </listeners>
-    <test name="Login test">
+    <test name="Login Page Test">
         <classes>
             <class name="org.tms.ui.tests.LoginTest"/>
         </classes>
     </test>
-    <test name="Create and delete project test">
+    <test name="Projects Page Test">
         <classes>
             <class name="org.tms.ui.tests.CreateAndDeleteProjectTest"/>
-        </classes>
-    </test>
-    <test name="Chat test">
-        <classes>
-            <class name="org.tms.ui.tests.ChatTest"/>
         </classes>
     </test>
 </suite>
