@@ -10,14 +10,15 @@ import org.tms.ui.services.ProjectsPageService;
 
 public class ChatTest extends BaseTest {
     private LoginPageService loginPageService;
+
     @BeforeClass
     public void setUp() {
         loginPageService = new LoginPageService();
     }
 
-    @Test(description = "Open Chat")
-    @Description("Open Chat")
-    public void openChatTest() {
+    @Test(description = "Verify chat can be opened")
+    @Description("Verify chat can be opened")
+    public void verifyChatCanBeOpenedTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
         boolean isChatMessagesButtonDisplayed = projectsPageService

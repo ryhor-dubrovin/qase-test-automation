@@ -2,6 +2,7 @@ package org.tms.api.tests;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.api.adapters.DefectAdapter;
 import org.tms.api.models.Defect;
@@ -11,45 +12,51 @@ import static org.tms.utils.constants.DefectSeverity.*;
 
 
 public class DefectTest {
-    private static final String projectName = "DEMO";
+    private static final String PROJECT_NAME = "DEMO";
     private int defectId;
-    private DefectAdapter defectAdapter = new DefectAdapter();
-    private Defect defect = Defect.builder()
-            .title(TestDataGenerator.createDefectTitle())
-            .actualResult(TestDataGenerator.createDefectActualResult())
-            .severity(BLOCKER_DEFECT_SEVERITY_INT)
-            .build();
+    private DefectAdapter defectAdapter;
+    private Defect defect;
 
-    @Test
-    public void getAllDefects() {
-        boolean responseStatus = defectAdapter.getDefects(projectName).body().path("status");
-        Assert.assertTrue(responseStatus, "GET /defect/" + projectName + " failed!");
+    @BeforeClass
+    public void setUp() {
+        defectAdapter = new DefectAdapter();
+        defect = Defect.builder()
+                .title(TestDataGenerator.createDefectTitle())
+                .actualResult(TestDataGenerator.createDefectActualResult())
+                .severity(BLOCKER_DEFECT_SEVERITY_INT)
+                .build();
     }
 
     @Test
-    public void createDefectTest() {
-        Response response = defectAdapter.createDefect(projectName, defect);
+    public void verifyGetAllDefectsSuccessTest() {
+        boolean responseStatus = defectAdapter.getDefects(PROJECT_NAME).body().path("status");
+        Assert.assertTrue(responseStatus, "GET /defect/" + PROJECT_NAME + " failed!");
+    }
+
+    @Test
+    public void verifyCreateDefectSuccessTest() {
+        Response response = defectAdapter.createDefect(PROJECT_NAME, defect);
         boolean responseStatus = response.body().path("status");
         defectId = response.body().path("result.id");
-        Assert.assertTrue(responseStatus, "POST /defect/" + projectName + " failed!");
+        Assert.assertTrue(responseStatus, "POST /defect/" + PROJECT_NAME + " failed!");
     }
 
-    @Test(dependsOnMethods = "createDefectTest")
-    public void updateDefectTest() {
+    @Test(dependsOnMethods = "verifyCreateDefectSuccessTest")
+    public void verifyUpdateDefectSuccessTest() {
         defect.setSeverity(TRIVIAL_DEFECT_SEVERITY_INT);
-        boolean responseStatus = defectAdapter.updateDefect(projectName, defectId, defect).body().path("status");
-        Assert.assertTrue(responseStatus, String.format("PATCH /defect/%s/%d failed!", projectName, defectId));
+        boolean responseStatus = defectAdapter.updateDefect(PROJECT_NAME, defectId, defect).body().path("status");
+        Assert.assertTrue(responseStatus, String.format("PATCH /defect/%s/%d failed!", PROJECT_NAME, defectId));
     }
 
-    @Test(dependsOnMethods = "updateDefectTest")
-    public void getDefect() {
-        boolean responseStatus = defectAdapter.getDefect(projectName, defectId).body().path("status");
-        Assert.assertTrue(responseStatus, String.format("GET /defect/%s/%d failed!", projectName, defectId));
+    @Test(dependsOnMethods = "verifyUpdateDefectSuccessTest")
+    public void verifyGetDefectSuccessTest() {
+        boolean responseStatus = defectAdapter.getDefect(PROJECT_NAME, defectId).body().path("status");
+        Assert.assertTrue(responseStatus, String.format("GET /defect/%s/%d failed!", PROJECT_NAME, defectId));
     }
 
-    @Test(dependsOnMethods = "getDefect")
-    public void deleteDefect() {
-        boolean responseStatus = defectAdapter.deleteDefect(projectName, defectId).body().path("status");
-        Assert.assertTrue(responseStatus, String.format("DELETE /defect/%s/%d failed!", projectName, defectId));
+    @Test(dependsOnMethods = "verifyGetDefectSuccessTest")
+    public void verifyDeleteDefectSuccessTest() {
+        boolean responseStatus = defectAdapter.deleteDefect(PROJECT_NAME, defectId).body().path("status");
+        Assert.assertTrue(responseStatus, String.format("DELETE /defect/%s/%d failed!", PROJECT_NAME, defectId));
     }
 }

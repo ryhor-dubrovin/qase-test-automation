@@ -14,13 +14,13 @@ public class CasesTest {
     private CaseAdapter caseAdapter = new CaseAdapter();
 
     @Test(priority = -1)
-    public void getCases() {
+    public void verifyGetAllTestCasesCountTest() {
         int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
         Assert.assertEquals(totalCases, CASES_IN_PROJECT, "Incorrect number of cases in DEMO project.");
     }
 
     @Test
-    public void createCase() {
+    public void verifyCreateTestCaseSuccessTest() {
         Case testCase = Case.builder()
                 .title(TestDataGenerator.createCaseTitle())
                 .build();
@@ -30,14 +30,14 @@ public class CasesTest {
         Assert.assertTrue(responseStatus, "POST /case/" + PROJECT_CODE + " failed!");
     }
 
-    @Test(dependsOnMethods = "createCase")
-    public void getCase() {
+    @Test(dependsOnMethods = "verifyCreateTestCaseSuccessTest")
+    public void verifyGetCreatedTestCaseTest() {
         boolean responseStatus = caseAdapter.getCaseById(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId));
     }
 
-    @Test(dependsOnMethods = {"createCase", "getCase"})
-    public void deleteCase() {
+    @Test(dependsOnMethods = "verifyGetCreatedTestCaseTest")
+    public void verifyDeleteTestCaseSuccessTest() {
         boolean responseStatus = caseAdapter.deleteCase(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId));
     }

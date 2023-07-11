@@ -11,15 +11,15 @@ public class ProjectsTest {
     private String projectCode;
 
     @Test
-    public void getProjectsTest() {
+    public void verifyGetProjectsSuccessTest() {
         Response response = new ProjectAdapter().getProjects();
         int statusCode = response.statusCode();
         projectCode = response.body().path("result.entities[0].code");
         Assert.assertEquals(statusCode, HTTP_OK, "GET /project return HTTP " + statusCode);
     }
 
-    @Test(dependsOnMethods = "getProjectsTest")
-    public void getProjectByCodeTest() {
+    @Test(dependsOnMethods = "verifyGetProjectsSuccessTest")
+    public void verifyGetProjectByCodeSuccessTest() {
         boolean responseStatus = new ProjectAdapter().getProjectByCode(projectCode).body().path("status");
         Assert.assertTrue(responseStatus, "GET /project/" + projectCode + " failed!");
     }

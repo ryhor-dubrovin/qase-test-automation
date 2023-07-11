@@ -11,6 +11,7 @@ public class ProjectsPageService {
     public boolean isCreateNewProjectButtonDisplayed() {
         return projectsPage.isCreateNewProjectButtonDisplayed();
     }
+
     public boolean isChatMessagesButtonDisplayed() {
         return projectsPage.isChatMessagesButtonDisplayed();
     }
@@ -20,19 +21,22 @@ public class ProjectsPageService {
         projectsPage.openPage();
         return this;
     }
+
     @Step("Clicking the Chat button.")
     public ProjectsPageService clickChatButton() {
         projectsPage.clickChatButton();
         return this;
     }
+
     @Step("Creating a new project.")
     public SingleProjectPageService createNewProject(String projectName) {
         projectsPage
                 .clickCreateNewProjectButton()
-                        .fillInProjectNameField(projectName)
-                                .clickCreateProjectButton();
+                .fillInProjectNameField(projectName)
+                .clickCreateProjectButton();
         return new SingleProjectPageService();
     }
+
     @Step("Getting the project index.")
     public int getProjectIndex(String projectName) {
         int index = 0;
@@ -44,14 +48,16 @@ public class ProjectsPageService {
         }
         return -1;
     }
+
     @Step("Deleting the project.")
     public ProjectsPageService deleteProject(int index) {
         projectsPage
                 .clickProjectMenuButton(index)
-                        .clickProjectMenuDeleteButton(index)
-                                .clickDeleteProjectButton();
+                .clickProjectMenuDeleteButton(index)
+                .clickDeleteProjectButton();
         return this;
     }
+
     @Step("Checking if a project with the given name is displayed on the page.")
     public boolean isProjectDisplayed(String projectName) {
         return getProjectIndex(projectName) > 0;

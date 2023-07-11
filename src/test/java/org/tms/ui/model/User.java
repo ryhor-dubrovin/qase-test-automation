@@ -1,7 +1,6 @@
 package org.tms.ui.model;
 
 public class User {
-    //business model
     private String email;
     private String password;
 

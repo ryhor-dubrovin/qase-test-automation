@@ -41,6 +41,7 @@ public class ProjectsPage extends BasePage {
         driver.get(Urls.PROJECTS_PAGE);
         return this;
     }
+
     @Step("Check if the \"Create New Project\" button is displayed.")
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
@@ -75,20 +76,22 @@ public class ProjectsPage extends BasePage {
         waitVisibilityOf(projectNameField).sendKeys(projectName);
         return this;
     }
+
     @Step("Clicking the \"Menu\" button for the project.")
     public ProjectsPage clickProjectMenuButton(int index) {
         waitElementToBeClickable(projectMenuButtons.get(index)).click();
         return this;
     }
+
     @Step("Clicking the \"Delete\" button from the project menu.")
     public ProjectsPage clickProjectMenuDeleteButton(int index) {
         waitElementToBeClickable(projectMenuDeleteButtons.get(index)).click();
         return this;
     }
+
     @Step("Clicking the \"Delete\" project button.")
     public ProjectsPage clickDeleteProjectButton() {
         waitElementToBeClickable(getDeleteProjectButton()).click();
         return this;
     }
-
 }

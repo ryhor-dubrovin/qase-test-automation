@@ -19,9 +19,9 @@ public class LoginTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test(description = "Login with user")
-    @Description("Login with user")
-    public void loginWithUserTest() {
+    @Test(description = "Verify login with user is successful")
+    @Description("Verify login with user is successful")
+    public void verifyLoginWithUserIsSuccessfulTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);
         Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),

@@ -14,5 +14,4 @@ public class SingleProjectPage extends BasePage {
     public boolean isCreateNewCaseButtonDisplayed() {
         return waitVisibilityOf(createNewCaseButton).isDisplayed();
     }
-
 }
