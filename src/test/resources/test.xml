@@ -14,6 +14,11 @@
             <class name="org.tms.ui.tests.CreateAndDeleteProjectTest"/>
         </classes>
     </test>
+    <test name="Create and delete case test">
+        <classes>
+            <class name="org.tms.ui.tests.CreateAndDeleteCaseTest"/>
+        </classes>
+    </test>
     <test name="Chat test">
         <classes>
             <class name="org.tms.ui.tests.ChatTest"/>

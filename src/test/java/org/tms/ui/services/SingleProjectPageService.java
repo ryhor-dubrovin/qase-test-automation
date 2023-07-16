@@ -1,6 +1,7 @@
 package org.tms.ui.services;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.tms.ui.pages.SingleProjectPage;
 
 public class SingleProjectPageService {
@@ -23,8 +24,26 @@ public class SingleProjectPageService {
                 .clickSaveButton();
         return this;
     }
+    @Step("Deleting case")
+    public SingleProjectPageService deleteCase(String caseTitle) {
+        singleProjectPage
+                .clickCaseButton(caseTitle)
+                .clickDeleteCaseButton()
+                .clickApproveDeleteCaseButton();
+        return this;
+    }
     @Step("Checking if the \"Test case was created\" message is displayed.")
     public boolean isCaseCreationMessageDisplayed() {
         return singleProjectPage.isCaseCreationMessageDisplayed();
+    }
+    @Step("Checking if the \"Test case was deleted\" message is displayed.")
+    public boolean isCaseDeletionMessageDisplayed() {
+        return singleProjectPage.isCaseDeletionMessageDisplayed();
+    }
+
+    @Step("")
+    public SingleProjectPageService clickCaseButton(String caseTitle) {
+        singleProjectPage.clickCaseButton(caseTitle);
+        return this;
     }
 }

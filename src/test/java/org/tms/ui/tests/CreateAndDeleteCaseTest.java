@@ -13,6 +13,7 @@ import org.tms.utils.tools.TestDataGenerator;
 
 public class CreateAndDeleteCaseTest extends BaseTest {
     private static final String PROJECT_NAME = "Demo project";
+    private String caseTitle;
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
     private SingleProjectPageService singleProjectPageService;
@@ -30,10 +31,19 @@ public class CreateAndDeleteCaseTest extends BaseTest {
 
     @Test
     public void verifyNewCaseCanBeCreatedTest() {
-        String caseTitle = TestDataGenerator.createCaseTitle();
+        caseTitle = TestDataGenerator.createCaseTitle();
         boolean isCaseCreated = singleProjectPageService
                 .createCase(caseTitle)
                 .isCaseCreationMessageDisplayed();
         Assert.assertTrue(isCaseCreated, "Failed to create new case!");
+    }
+
+    @Test(dependsOnMethods = "verifyNewCaseCanBeCreatedTest")
+    public void verifyCaseCanBeDeletedTest() {
+        boolean isCaseDeleted = singleProjectPageService
+                .deleteCase(caseTitle)
+                .isCaseDeletionMessageDisplayed();
+        Assert.assertTrue(isCaseDeleted, "Failed to delete case!");
+
     }
 }
