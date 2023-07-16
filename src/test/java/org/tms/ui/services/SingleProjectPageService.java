@@ -10,4 +10,21 @@ public class SingleProjectPageService {
     public boolean isCreateNewCaseButtonDisplayed() {
         return singleProjectPage.isCreateNewCaseButtonDisplayed();
     }
+    @Step("Opening the case")
+    public SingleProjectPageService openCase(int caseIndex) {
+        singleProjectPage.openCase(caseIndex);
+        return this;
+    }
+    @Step("Creating new case")
+    public SingleProjectPageService createCase(String caseTitle) {
+        singleProjectPage
+                .clickAddCaseButton()
+                .fillInTitle(caseTitle)
+                .clickSaveButton();
+        return this;
+    }
+    @Step("Checking if the \"Test case was created\" message is displayed.")
+    public boolean isCaseCreationMessageDisplayed() {
+        return singleProjectPage.isCaseCreationMessageDisplayed();
+    }
 }

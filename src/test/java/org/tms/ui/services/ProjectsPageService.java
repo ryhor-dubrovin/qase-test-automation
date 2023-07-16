@@ -2,6 +2,7 @@ package org.tms.ui.services;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 import org.tms.ui.pages.ProjectsPage;
 
 public class ProjectsPageService {
@@ -47,6 +48,11 @@ public class ProjectsPageService {
             index++;
         }
         return -1;
+    }
+    @Step("Opening the project")
+    public SingleProjectPageService openProject(int projectIndex) {
+        projectsPage.openProject(projectIndex);
+        return new SingleProjectPageService();
     }
 
     @Step("Deleting the project.")
