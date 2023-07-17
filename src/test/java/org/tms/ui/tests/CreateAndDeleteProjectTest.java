@@ -51,10 +51,11 @@ public class CreateAndDeleteProjectTest extends BaseTest {
     @Test
     @Description("Verify project can not be created with no name")
     public void verifyProjectCanNotBeCreatedWithNoNameTest() {
-        boolean isCreateNewCaseButtonDisplayed = projectsPageService
-                .createNewProject(EMPTY_PROJECT_NAME)
-                .isCreateNewCaseButtonDisplayed();
-        Assert.assertFalse(isCreateNewCaseButtonDisplayed,
+        projectsPageService
+                .createNewProject(EMPTY_PROJECT_NAME);
+        boolean isCreateProjectButtonDisplayed = projectsPageService
+                .isCreateProjectButtonDisplayed();
+        Assert.assertTrue(isCreateProjectButtonDisplayed,
                 "Project created with no name!");
     }
 }

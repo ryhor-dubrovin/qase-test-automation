@@ -58,6 +58,11 @@ public class ProjectsPage extends BasePage {
         return waitVisibilityOf(chatMessagesButton).isDisplayed();
     }
 
+    @Step("Check if the \"Create Project\" button is displayed.")
+    public boolean isCreateProjectButtonDisplayed() {
+        return waitVisibilityOf(createProjectButton).isDisplayed();
+    }
+
     @Step("Clicking the \"Create New Project\" button.")
     public ProjectsPage clickCreateNewProjectButton() {
         waitElementToBeClickable(createNewProjectButton).click();

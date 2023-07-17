@@ -23,4 +23,9 @@ public class CasePage extends BasePage {
         waitElementToBeClickable(saveButton).click();
         return new SingleProjectPage();
     }
+
+    @Step("")
+    public boolean isSaveButtonDisplayed() {
+        return waitVisibilityOf(saveButton).isDisplayed();
+    }
 }

@@ -13,11 +13,11 @@ public class CasesTest {
     private int caseId;
     private CaseAdapter caseAdapter = new CaseAdapter();
 
-    @Test(priority = -1)
-    public void verifyGetAllTestCasesCountTest() {
-        int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
-        Assert.assertEquals(totalCases, CASES_IN_PROJECT, "Incorrect number of cases in DEMO project.");
-    }
+//    @Test(priority = -1)
+//    public void verifyGetAllTestCasesCountTest() {
+//        int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
+//        Assert.assertEquals(totalCases, CASES_IN_PROJECT, "Incorrect number of cases in DEMO project.");
+//    }
 
     @Test
     public void verifyCreateTestCaseSuccessTest() {

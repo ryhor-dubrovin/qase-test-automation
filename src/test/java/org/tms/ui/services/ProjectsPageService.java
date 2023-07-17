@@ -64,9 +64,14 @@ public class ProjectsPageService {
         return this;
     }
 
-    @Step("Checking if a project with the given name is displayed on the page.")
-    public boolean isProjectDisplayed(String projectName) {
-        return getProjectIndex(projectName) > 0;
+//    @Step("Checking if a project with the given name is displayed on the page.")
+//    public boolean isProjectDisplayed(String projectName) {
+//        return getProjectIndex(projectName) > 0;
+//    }
+
+    @Step("Check if the \"Create Project\" button is displayed.")
+    public boolean isCreateProjectButtonDisplayed() {
+        return projectsPage.isCreateProjectButtonDisplayed();
     }
 
 }

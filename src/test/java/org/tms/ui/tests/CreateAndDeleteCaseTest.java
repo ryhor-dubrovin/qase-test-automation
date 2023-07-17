@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.ui.model.User;
+import org.tms.ui.services.CasePageService;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 import org.tms.ui.services.SingleProjectPageService;
@@ -16,12 +17,14 @@ public class CreateAndDeleteCaseTest extends BaseTest {
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
     private SingleProjectPageService singleProjectPageService;
+    private CasePageService casePageService;
 
     @BeforeClass
     public void setUp() {
         loginPageService = new LoginPageService();
         projectsPageService = new ProjectsPageService();
         singleProjectPageService = new SingleProjectPageService();
+        casePageService = new CasePageService();
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         loginPageService
                 .loginWithUser(user)
@@ -48,9 +51,10 @@ public class CreateAndDeleteCaseTest extends BaseTest {
 
     @Test
     public void verifyCaseCanNotBeCreatedWithNoTitleTest() {
-        boolean isCaseCreated = singleProjectPageService
-                .createCase(emptyCaseTitle)
-                .isCaseCreationMessageDisplayed();
-        Assert.assertFalse(isCaseCreated, "Case created with no title!");
+        singleProjectPageService
+                .createCase(emptyCaseTitle);
+        boolean isSaveButtonDisplayed = casePageService
+                .isSaveButtonDisplayed();
+        Assert.assertTrue(isSaveButtonDisplayed, "Case created with no title!");
     }
 }
