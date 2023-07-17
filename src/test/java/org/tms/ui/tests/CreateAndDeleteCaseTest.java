@@ -49,7 +49,7 @@ public class CreateAndDeleteCaseTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(dependsOnMethods = "verifyCaseCanBeDeletedTest")
     public void verifyCaseCanNotBeCreatedWithNoTitleTest() {
         singleProjectPageService
                 .createCase(emptyCaseTitle);

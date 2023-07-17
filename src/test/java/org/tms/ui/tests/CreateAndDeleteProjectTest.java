@@ -48,7 +48,7 @@ public class CreateAndDeleteProjectTest extends BaseTest {
                 "Failed to delete the project!");
     }
 
-    @Test
+    @Test(dependsOnMethods = "verifyProjectCanBeDeletedTest", description = "Verify project can not be created with no name")
     @Description("Verify project can not be created with no name")
     public void verifyProjectCanNotBeCreatedWithNoNameTest() {
         projectsPageService

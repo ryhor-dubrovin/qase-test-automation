@@ -32,6 +32,7 @@ public class ProjectsPageService {
     @Step("Creating a new project.")
     public SingleProjectPageService createNewProject(String projectName) {
         projectsPage
+                .openPage()
                 .clickCreateNewProjectButton()
                 .fillInProjectNameField(projectName)
                 .clickCreateProjectButton();
