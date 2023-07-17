@@ -8,7 +8,7 @@ import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
-public class ChatTest extends BaseTest {
+public class ChatAccessTest extends BaseTest {
     private LoginPageService loginPageService;
 
     @BeforeClass
@@ -16,8 +16,8 @@ public class ChatTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test(description = "Verify chat can be opened")
-    @Description("Verify chat can be opened")
+    @Test(description = "Verify that chat can be opened")
+    @Description("Verify that chat can be opened")
     public void verifyChatCanBeOpenedTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);

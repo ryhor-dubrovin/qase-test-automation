@@ -8,11 +8,10 @@ import org.testng.annotations.Test;
 import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
-import org.tms.ui.services.SingleProjectPageService;
 import org.tms.utils.tools.TestDataGenerator;
 
 @Story("Projects tests")
-public class CreateAndDeleteProjectTest extends BaseTest {
+public class ProjectFunctionalityTest extends BaseTest {
     private static final String PROJECT_NAME = TestDataGenerator.createProjectName();
     private static final String EMPTY_PROJECT_NAME = "";
     private LoginPageService loginPageService;
@@ -27,8 +26,8 @@ public class CreateAndDeleteProjectTest extends BaseTest {
                 .loginWithUser(user);
     }
 
-    @Test(description = "Verify new project can be created")
-    @Description("Verify new project can be created")
+    @Test(description = "Verify that a new project can be created")
+    @Description("Verify that a new project can be created")
     public void verifyNewProjectCanBeCreatedTest() {
         boolean isCreateNewCaseButtonDisplayed = projectsPageService
                 .createNewProject(PROJECT_NAME)
@@ -37,8 +36,8 @@ public class CreateAndDeleteProjectTest extends BaseTest {
                 "Failed to create a new project!");
     }
 
-    @Test(dependsOnMethods = "verifyNewProjectCanBeCreatedTest", description = "Verify project can be deleted")
-    @Description("Verify project can be deleted")
+    @Test(description = "Verify that project can be deleted", dependsOnMethods = "verifyNewProjectCanBeCreatedTest")
+    @Description("Verify that project can be deleted")
     public void verifyProjectCanBeDeletedTest() {
         boolean isCreateNewProjectButtonDisplayed = projectsPageService
                 .openPage()
@@ -48,8 +47,8 @@ public class CreateAndDeleteProjectTest extends BaseTest {
                 "Failed to delete the project!");
     }
 
-    @Test(dependsOnMethods = "verifyProjectCanBeDeletedTest", description = "Verify project can not be created with no name")
-    @Description("Verify project can not be created with no name")
+    @Test(description = "Verify that project can't be created without name", dependsOnMethods = "verifyProjectCanBeDeletedTest")
+    @Description("Verify that project can't be created without name")
     public void verifyProjectCanNotBeCreatedWithNoNameTest() {
         projectsPageService
                 .createNewProject(EMPTY_PROJECT_NAME);

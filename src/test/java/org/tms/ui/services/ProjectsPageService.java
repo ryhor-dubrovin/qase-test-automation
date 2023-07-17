@@ -50,6 +50,7 @@ public class ProjectsPageService {
         }
         return -1;
     }
+
     @Step("Opening the project")
     public SingleProjectPageService openProject(int projectIndex) {
         projectsPage.openProject(projectIndex);
@@ -64,11 +65,6 @@ public class ProjectsPageService {
                 .clickDeleteProjectButton();
         return this;
     }
-
-//    @Step("Checking if a project with the given name is displayed on the page.")
-//    public boolean isProjectDisplayed(String projectName) {
-//        return getProjectIndex(projectName) > 0;
-//    }
 
     @Step("Check if the \"Create Project\" button is displayed.")
     public boolean isCreateProjectButtonDisplayed() {

@@ -10,11 +10,13 @@ public class SingleProjectPageService {
     public boolean isCreateNewCaseButtonDisplayed() {
         return singleProjectPage.isCreateNewCaseButtonDisplayed();
     }
+
     @Step("Opening the case")
     public SingleProjectPageService openCase(int caseIndex) {
         singleProjectPage.openCase(caseIndex);
         return this;
     }
+
     @Step("Creating new case")
     public SingleProjectPageService createCase(String caseTitle) {
         singleProjectPage
@@ -23,6 +25,7 @@ public class SingleProjectPageService {
                 .clickSaveButton();
         return this;
     }
+
     @Step("Creating new suite")
     public SingleProjectPageService createSuite(String suiteName) {
         singleProjectPage
@@ -31,6 +34,7 @@ public class SingleProjectPageService {
                 .clickCreateSuiteButton();
         return this;
     }
+
     @Step("Deleting case")
     public SingleProjectPageService deleteCase(String caseTitle) {
         singleProjectPage
@@ -39,20 +43,23 @@ public class SingleProjectPageService {
                 .clickApproveDeleteCaseButton();
         return this;
     }
+
     @Step("Checking if the \"Test case was created\" message is displayed.")
     public boolean isCaseCreationMessageDisplayed() {
         return singleProjectPage.isCaseCreationMessageDisplayed();
     }
+
     @Step("Checking if the \"Test case was deleted\" message is displayed.")
     public boolean isCaseDeletionMessageDisplayed() {
         return singleProjectPage.isCaseDeletionMessageDisplayed();
     }
+
     @Step("Checking if the \"Suite was created\" message is displayed.")
     public boolean isSuiteCreationMessageDisplayed() {
         return singleProjectPage.isSuiteCreationMessageDisplayed();
     }
 
-    @Step("")
+    @Step("Click on the case button")
     public SingleProjectPageService clickCaseButton(String caseTitle) {
         singleProjectPage.clickCaseButton(caseTitle);
         return this;

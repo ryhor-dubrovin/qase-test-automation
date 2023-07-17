@@ -10,7 +10,7 @@ import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
 @Story("Login tests")
-public class LoginTest extends BaseTest {
+public class UserLoginTest extends BaseTest {
 
     private LoginPageService loginPageService;
 
@@ -19,8 +19,8 @@ public class LoginTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test(description = "Verify login with user is successful")
-    @Description("Verify login with user is successful")
+    @Test(description = "Verify that login with valid user credentials is successful")
+    @Description("Verify that login with valid user credentials is successful")
     public void verifyLoginWithUserIsSuccessfulTest() {
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         ProjectsPageService projectsPageService = loginPageService.loginWithUser(user);

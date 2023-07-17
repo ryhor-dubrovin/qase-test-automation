@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -10,7 +11,7 @@ import org.tms.ui.services.ProjectsPageService;
 import org.tms.ui.services.SingleProjectPageService;
 import org.tms.utils.tools.TestDataGenerator;
 
-public class CreateAndDeleteCaseTest extends BaseTest {
+public class ProjectEntitiesFunctionalityTest extends BaseTest {
     private static final String PROJECT_NAME = "Demo project";
     private static final String EMPTY_CASE_TITLE = "";
     private String suiteName = TestDataGenerator.createSuiteTitle();
@@ -32,7 +33,8 @@ public class CreateAndDeleteCaseTest extends BaseTest {
                 .openProject(projectsPageService.getProjectIndex(PROJECT_NAME));
     }
 
-    @Test
+    @Test(description = "Verify that new case can be created")
+    @Description("Verify that new case can be created")
     public void verifyNewCaseCanBeCreatedTest() {
         caseTitle = TestDataGenerator.createCaseTitle();
         boolean isCaseCreated = singleProjectPageService
@@ -41,7 +43,8 @@ public class CreateAndDeleteCaseTest extends BaseTest {
         Assert.assertTrue(isCaseCreated, "Failed to create new case!");
     }
 
-    @Test(dependsOnMethods = "verifyNewCaseCanBeCreatedTest")
+    @Test(description = "Verify that case can be deleted", dependsOnMethods = "verifyNewCaseCanBeCreatedTest")
+    @Description("Verify that case can be deleted")
     public void verifyCaseCanBeDeletedTest() {
         boolean isCaseDeleted = singleProjectPageService
                 .deleteCase(caseTitle)
@@ -50,7 +53,8 @@ public class CreateAndDeleteCaseTest extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "verifyCaseCanBeDeletedTest")
+    @Test(description = "Verifying that suite can be created", dependsOnMethods = "verifyCaseCanBeDeletedTest")
+    @Description("Verify that suite can be created")
     public void verifySuiteCanBeCreatedTest() {
         boolean isSuiteCreationMessageDisplayed = singleProjectPageService
                 .createSuite(suiteName)
@@ -58,7 +62,8 @@ public class CreateAndDeleteCaseTest extends BaseTest {
         Assert.assertTrue(isSuiteCreationMessageDisplayed, "Failed to create suite");
     }
 
-    @Test(dependsOnMethods = "verifySuiteCanBeCreatedTest")
+    @Test(description = "Verify that case cannot be created without title", dependsOnMethods = "verifySuiteCanBeCreatedTest")
+    @Description("Verify that case cannot be created without title")
     public void verifyCaseCanNotBeCreatedWithNoTitleTest() {
         singleProjectPageService
                 .createCase(EMPTY_CASE_TITLE);

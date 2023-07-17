@@ -38,14 +38,17 @@ public class SingleProjectPage extends BasePage {
     public boolean isCreateNewCaseButtonDisplayed() {
         return waitVisibilityOf(createNewCaseButton).isDisplayed();
     }
+
     @Step("Checking if the \"Test case was created\" message is displayed.")
     public boolean isCaseCreationMessageDisplayed() {
         return waitVisibilityOf(caseCreationMessage).isDisplayed();
     }
+
     @Step("Checking if the \"Suite was created\" message is displayed.")
     public boolean isSuiteCreationMessageDisplayed() {
         return waitVisibilityOf(suiteCreationMessage).isDisplayed();
     }
+
     @Step("Checking if the \"Test case was deleted\" message is displayed.")
     public boolean isCaseDeletionMessageDisplayed() {
         return waitVisibilityOf(caseDeletionMessage).isDisplayed();
@@ -62,26 +65,31 @@ public class SingleProjectPage extends BasePage {
         waitElementToBeClickable(addCaseButton).click();
         return new CasePage();
     }
+
     @Step("Clicking add suite button")
     public SingleProjectPage clickAddSuiteButton() {
         waitElementToBeClickable(addSuiteButton).click();
         return this;
     }
+
     @Step("Clicking create suite button")
     public SingleProjectPage clickCreateSuiteButton() {
         waitElementToBeClickable(createSuiteButton).click();
         return this;
     }
+
     @Step("")
     public SingleProjectPage clickCaseButton(String caseTitle) {
         waitElementToBeClickable(driver.findElement(By.xpath(String.format("//div[text() = '%s']", caseTitle)))).click();
         return this;
     }
+
     @Step("Clicking delete case button")
     public SingleProjectPage clickDeleteCaseButton() {
         waitElementToBeClickable(deleteCaseButton).click();
         return this;
     }
+
     @Step("Clicking delete case button")
     public SingleProjectPage clickApproveDeleteCaseButton() {
         waitElementToBeClickable(approveDeleteCaseButton).click();
