@@ -4,6 +4,16 @@
     <listeners>
         <listener class-name="org.tms.utils.tools.AnnotationTransformer"/>
     </listeners>
+    <test name="Defect Test">
+        <classes>
+            <class name="org.tms.api.tests.DefectTest"/>
+        </classes>
+    </test>
+    <test name="Cases Test">
+        <classes>
+            <class name="org.tms.api.tests.CasesTest"/>
+        </classes>
+    </test>
     <test name="Projects Test">
         <classes>
             <class name="org.tms.api.tests.ProjectsTest"/>
