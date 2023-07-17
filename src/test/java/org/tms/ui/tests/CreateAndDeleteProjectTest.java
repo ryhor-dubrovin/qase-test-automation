@@ -15,20 +15,22 @@ import org.tms.utils.tools.TestDataGenerator;
 public class CreateAndDeleteProjectTest extends BaseTest {
     private static final String PROJECT_NAME = TestDataGenerator.createProjectName();
     private LoginPageService loginPageService;
+    private ProjectsPageService projectsPageService;
 
     @BeforeClass
     public void setUp() {
         loginPageService = new LoginPageService();
+        projectsPageService = new ProjectsPageService();
+        User user = new User(System.getProperty("email"), System.getProperty("password"));
+        loginPageService
+                .loginWithUser(user);
     }
 
     @Test(description = "Verify new project can be created")
     @Description("Verify new project can be created")
     public void verifyNewProjectCanBeCreatedTest() {
-        User user = new User(System.getProperty("email"), System.getProperty("password"));
-        SingleProjectPageService singleProjectPageService = loginPageService
-                .loginWithUser(user)
-                .createNewProject(PROJECT_NAME);
-        boolean isCreateNewCaseButtonDisplayed = singleProjectPageService
+        boolean isCreateNewCaseButtonDisplayed = projectsPageService
+                .createNewProject(PROJECT_NAME)
                 .isCreateNewCaseButtonDisplayed();
         Assert.assertTrue(isCreateNewCaseButtonDisplayed,
                 "Failed to create a new project!");
@@ -37,12 +39,11 @@ public class CreateAndDeleteProjectTest extends BaseTest {
     @Test(dependsOnMethods = "verifyNewProjectCanBeCreatedTest", description = "Verify project can be deleted")
     @Description("Verify project can be deleted")
     public void verifyProjectCanBeDeletedTest() {
-        ProjectsPageService projectsPageService = new ProjectsPageService();
-        int projectIndex = projectsPageService
+        boolean isCreateNewProjectButtonDisplayed = projectsPageService
                 .openPage()
-                .getProjectIndex(PROJECT_NAME);
-        projectsPageService.deleteProject(projectIndex);
-        Assert.assertTrue(projectsPageService.isCreateNewProjectButtonDisplayed(),
+                .deleteProject(projectsPageService.getProjectIndex(PROJECT_NAME))
+                .isCreateNewProjectButtonDisplayed();
+        Assert.assertTrue(isCreateNewProjectButtonDisplayed,
                 "Failed to delete the project!");
     }
 }
