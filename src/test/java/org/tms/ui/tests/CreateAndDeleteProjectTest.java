@@ -14,6 +14,7 @@ import org.tms.utils.tools.TestDataGenerator;
 @Story("Projects tests")
 public class CreateAndDeleteProjectTest extends BaseTest {
     private static final String PROJECT_NAME = TestDataGenerator.createProjectName();
+    private static final String EMPTY_PROJECT_NAME = "";
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
 
@@ -45,5 +46,15 @@ public class CreateAndDeleteProjectTest extends BaseTest {
                 .isCreateNewProjectButtonDisplayed();
         Assert.assertTrue(isCreateNewProjectButtonDisplayed,
                 "Failed to delete the project!");
+    }
+
+    @Test
+    @Description("Verify project can not be created with no name")
+    public void verifyProjectCanNotBeCreatedWithNoNameTest() {
+        boolean isCreateNewCaseButtonDisplayed = projectsPageService
+                .createNewProject(EMPTY_PROJECT_NAME)
+                .isCreateNewCaseButtonDisplayed();
+        Assert.assertFalse(isCreateNewCaseButtonDisplayed,
+                "Project created with no name!");
     }
 }

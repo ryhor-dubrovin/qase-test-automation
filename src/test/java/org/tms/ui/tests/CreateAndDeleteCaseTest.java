@@ -1,10 +1,8 @@
 package org.tms.ui.tests;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.api.adapters.ProjectAdapter;
 import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
@@ -14,6 +12,7 @@ import org.tms.utils.tools.TestDataGenerator;
 public class CreateAndDeleteCaseTest extends BaseTest {
     private static final String PROJECT_NAME = "Demo project";
     private String caseTitle;
+    private String emptyCaseTitle = "";
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
     private SingleProjectPageService singleProjectPageService;
@@ -45,5 +44,13 @@ public class CreateAndDeleteCaseTest extends BaseTest {
                 .isCaseDeletionMessageDisplayed();
         Assert.assertTrue(isCaseDeleted, "Failed to delete case!");
 
+    }
+
+    @Test
+    public void verifyCaseCanNotBeCreatedWithNoTitleTest() {
+        boolean isCaseCreated = singleProjectPageService
+                .createCase(emptyCaseTitle)
+                .isCaseCreationMessageDisplayed();
+        Assert.assertFalse(isCaseCreated, "Case created with no title!");
     }
 }
