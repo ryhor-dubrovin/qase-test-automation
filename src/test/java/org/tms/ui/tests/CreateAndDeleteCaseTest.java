@@ -12,8 +12,9 @@ import org.tms.utils.tools.TestDataGenerator;
 
 public class CreateAndDeleteCaseTest extends BaseTest {
     private static final String PROJECT_NAME = "Demo project";
+    private static final String EMPTY_CASE_TITLE = "";
+    private String suiteName = TestDataGenerator.createSuiteTitle();
     private String caseTitle;
-    private String emptyCaseTitle = "";
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
     private SingleProjectPageService singleProjectPageService;
@@ -50,9 +51,17 @@ public class CreateAndDeleteCaseTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "verifyCaseCanBeDeletedTest")
+    public void verifySuiteCanBeCreatedTest() {
+        boolean isSuiteCreationMessageDisplayed = singleProjectPageService
+                .createSuite(suiteName)
+                .isSuiteCreationMessageDisplayed();
+        Assert.assertTrue(isSuiteCreationMessageDisplayed, "Failed to create suite");
+    }
+
+    @Test(dependsOnMethods = "verifySuiteCanBeCreatedTest")
     public void verifyCaseCanNotBeCreatedWithNoTitleTest() {
         singleProjectPageService
-                .createCase(emptyCaseTitle);
+                .createCase(EMPTY_CASE_TITLE);
         boolean isSaveButtonDisplayed = casePageService
                 .isSaveButtonDisplayed();
         Assert.assertTrue(isSaveButtonDisplayed, "Case created with no title!");

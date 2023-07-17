@@ -9,7 +9,7 @@ import org.tms.utils.tools.TestDataGenerator;
 
 public class CasesTest {
     private static final String PROJECT_CODE = "DEMO";
-    private static final int CASES_IN_PROJECT = 10;
+    //private static final int CASES_IN_PROJECT = 10;
     private int caseId;
     private CaseAdapter caseAdapter = new CaseAdapter();
 

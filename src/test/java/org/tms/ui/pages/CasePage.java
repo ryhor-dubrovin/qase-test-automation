@@ -13,7 +13,7 @@ public class CasePage extends BasePage {
     private WebElement saveButton;
 
     @Step("")
-    public CasePage fillInTitle(String caseTitle) {
+    public CasePage fillInCaseTitle(String caseTitle) {
         waitVisibilityOf(titleField).sendKeys(caseTitle);
         return this;
     }
