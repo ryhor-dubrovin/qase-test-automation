@@ -1,6 +1,7 @@
 package org.tms.api.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ import org.tms.api.adapters.CaseAdapter;
 import org.tms.api.models.Case;
 import org.tms.utils.tools.TestDataGenerator;
 
+@Story("Cases api tests")
 public class CasesTest {
     private static final String PROJECT_CODE = "DEMO";
     private CaseAdapter caseAdapter = new CaseAdapter();

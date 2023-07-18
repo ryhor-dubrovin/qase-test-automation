@@ -1,6 +1,7 @@
 package org.tms.ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ import org.tms.ui.services.ProjectsPageService;
 import org.tms.ui.services.SingleProjectPageService;
 import org.tms.utils.tools.TestDataGenerator;
 
+@Story("Project entities ui tests")
 public class ProjectEntitiesFunctionalityTest extends BaseTest {
     private static final String PROJECT_NAME = "Demo project";
     private static final String EMPTY_CASE_TITLE = "";

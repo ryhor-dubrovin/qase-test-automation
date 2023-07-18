@@ -9,7 +9,7 @@ import org.tms.ui.model.User;
 import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 
-@Story("Login tests")
+@Story("User login ui tests")
 public class UserLoginTest extends BaseTest {
 
     private LoginPageService loginPageService;

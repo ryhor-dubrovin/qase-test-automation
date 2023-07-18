@@ -1,6 +1,7 @@
 package org.tms.api.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +12,7 @@ import org.tms.utils.tools.TestDataGenerator;
 
 import static org.tms.utils.constants.DefectSeverity.*;
 
-
+@Story("Defects api tests")
 public class DefectTest {
     private static final String PROJECT_NAME = "DEMO";
     private DefectAdapter defectAdapter;

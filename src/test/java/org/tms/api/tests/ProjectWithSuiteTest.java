@@ -1,6 +1,7 @@
 package org.tms.api.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,6 +11,7 @@ import org.tms.api.models.Project;
 import org.tms.api.models.Suite;
 import org.tms.utils.tools.TestDataGenerator;
 
+@Story("Project with suite api tests")
 public class ProjectWithSuiteTest {
     private ProjectAdapter projectAdapter = new ProjectAdapter();
     private SuiteAdapter suiteAdapter = new SuiteAdapter();

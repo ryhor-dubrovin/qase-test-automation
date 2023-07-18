@@ -10,7 +10,7 @@ import org.tms.ui.services.LoginPageService;
 import org.tms.ui.services.ProjectsPageService;
 import org.tms.utils.tools.TestDataGenerator;
 
-@Story("Projects tests")
+@Story("Project ui tests")
 public class ProjectFunctionalityTest extends BaseTest {
     private static final String EMPTY_PROJECT_NAME = "";
     private String PROJECT_NAME = TestDataGenerator.createProjectName();

@@ -1,6 +1,7 @@
 package org.tms.api.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ import org.tms.api.adapters.ProjectAdapter;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 
+@Story("Projects api tests")
 public class ProjectsTest {
     private String projectCode;
 
