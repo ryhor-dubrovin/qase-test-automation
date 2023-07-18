@@ -28,9 +28,11 @@ public class ProjectEntitiesFunctionalityTest extends BaseTest {
         singleProjectPageService = new SingleProjectPageService();
         casePageService = new CasePageService();
         User user = new User(System.getProperty("email"), System.getProperty("password"));
-        loginPageService
+        int projectIndex = loginPageService
                 .loginWithUser(user)
-                .openProject(projectsPageService.getProjectIndex(PROJECT_NAME));
+                .getProjectIndex(PROJECT_NAME);
+        projectsPageService
+                        .openProject(projectIndex);
     }
 
     @Test(description = "Verify that new case can be created")

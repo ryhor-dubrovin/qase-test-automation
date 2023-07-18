@@ -12,8 +12,8 @@ import org.tms.utils.tools.TestDataGenerator;
 
 @Story("Projects tests")
 public class ProjectFunctionalityTest extends BaseTest {
-    private static final String PROJECT_NAME = TestDataGenerator.createProjectName();
     private static final String EMPTY_PROJECT_NAME = "";
+    private String PROJECT_NAME = TestDataGenerator.createProjectName();
     private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
 
