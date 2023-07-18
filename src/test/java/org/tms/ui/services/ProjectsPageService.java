@@ -1,10 +1,12 @@
 package org.tms.ui.services;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.tms.ui.pages.ProjectsPage;
 
+@Log4j2
 public class ProjectsPageService {
 
     private ProjectsPage projectsPage = new ProjectsPage();
@@ -48,6 +50,7 @@ public class ProjectsPageService {
             }
             index++;
         }
+        log.error(String.format("Project \"%s\" did not found on the page!", projectName));
         return -1;
     }
 

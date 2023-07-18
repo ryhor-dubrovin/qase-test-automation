@@ -59,9 +59,4 @@ public class SingleProjectPageService {
         return singleProjectPage.isSuiteCreationMessageDisplayed();
     }
 
-    @Step("Click on the case button")
-    public SingleProjectPageService clickCaseButton(String caseTitle) {
-        singleProjectPage.clickCaseButton(caseTitle);
-        return this;
-    }
 }

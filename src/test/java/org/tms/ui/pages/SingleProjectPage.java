@@ -78,7 +78,7 @@ public class SingleProjectPage extends BasePage {
         return this;
     }
 
-    @Step("")
+    @Step("Clicking case button")
     public SingleProjectPage clickCaseButton(String caseTitle) {
         waitElementToBeClickable(driver.findElement(By.xpath(String.format("//div[text() = '%s']", caseTitle)))).click();
         return this;
