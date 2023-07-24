@@ -18,15 +18,13 @@ public class ProjectEntitiesFunctionalityTest extends BaseTest {
     private static final String EMPTY_CASE_TITLE = "";
     private String suiteName = TestDataGenerator.createSuiteTitle();
     private String caseTitle;
-    private LoginPageService loginPageService;
-    private ProjectsPageService projectsPageService;
     private SingleProjectPageService singleProjectPageService;
     private CasePageService casePageService;
 
     @BeforeClass
     public void setUp() {
-        loginPageService = new LoginPageService();
-        projectsPageService = new ProjectsPageService();
+        LoginPageService loginPageService = new LoginPageService();
+        ProjectsPageService projectsPageService = new ProjectsPageService();
         singleProjectPageService = new SingleProjectPageService();
         casePageService = new CasePageService();
         User user = new User(System.getProperty("email"), System.getProperty("password"));

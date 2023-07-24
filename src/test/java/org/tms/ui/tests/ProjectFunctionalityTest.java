@@ -14,12 +14,11 @@ import org.tms.utils.tools.TestDataGenerator;
 public class ProjectFunctionalityTest extends BaseTest {
     private static final String EMPTY_PROJECT_NAME = "";
     private String PROJECT_NAME = TestDataGenerator.createProjectName();
-    private LoginPageService loginPageService;
     private ProjectsPageService projectsPageService;
 
     @BeforeClass
     public void setUp() {
-        loginPageService = new LoginPageService();
+        LoginPageService loginPageService = new LoginPageService();
         projectsPageService = new ProjectsPageService();
         User user = new User(System.getProperty("email"), System.getProperty("password"));
         loginPageService
