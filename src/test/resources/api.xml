@@ -1,37 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="All tests" parallel="tests" thread-count="2">
+<suite name="API Tests" parallel="tests" thread-count="3">
     <listeners>
         <listener class-name="org.tms.utils.tools.AnnotationTransformer"/>
     </listeners>
-
-    <!-- UI Tests-->
-
-    <test name="User login test">
-        <classes>
-            <class name="org.tms.ui.tests.UserLoginTest"/>
-        </classes>
-    </test>
-
-    <test name="Project functionality test">
-        <classes>
-            <class name="org.tms.ui.tests.ProjectFunctionalityTest"/>
-        </classes>
-    </test>
-
-    <test name="Project entities functionality test">
-        <classes>
-            <class name="org.tms.ui.tests.ProjectEntitiesFunctionalityTest"/>
-        </classes>
-    </test>
-
-    <test name="Chat access test">
-        <classes>
-            <class name="org.tms.ui.tests.ChatAccessTest"/>
-        </classes>
-    </test>
-
-    <!-- API Tests -->
 
     <test name="Projects Test">
         <classes>
