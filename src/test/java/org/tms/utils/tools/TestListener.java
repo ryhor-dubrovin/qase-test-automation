@@ -42,20 +42,6 @@ public class TestListener implements ITestListener {
                 iTestResult.getName()));
     }
 
-//    @Override
-//    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-//    }
-//
-//    @Override
-//    public void onStart(ITestContext iTestContext) {
-//        System.out.println("--- !!!START!! ---");
-//    }
-//
-//    @Override
-//    public void onFinish(ITestContext iTestContext) {
-//        System.out.println("--- !!!FINISHED!!! ---");
-//    }
-
     private long getExecutionTime(ITestResult iTestResult) {
         return TimeUnit.MILLISECONDS.toSeconds(iTestResult.getEndMillis() - iTestResult.getStartMillis());
     }

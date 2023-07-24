@@ -7,10 +7,6 @@ import org.tms.api.models.Case;
 import static org.tms.utils.constants.Urls.CASE_URI;
 
 public class CaseAdapter extends BaseAdapter {
-//    @Step("Get all cases")
-//    public Response getCases(String projectCode) {
-//        return get(CASE_URI + projectCode);
-//    }
 
     @Step("Get a specific case by its ID")
     public Response getCaseById(String projectCode, int caseId) {

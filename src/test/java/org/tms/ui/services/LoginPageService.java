@@ -7,7 +7,6 @@ import org.tms.ui.pages.LoginPage;
 
 @Log4j2
 public class LoginPageService {
-//    private LoginPage loginPage = new LoginPage();
 
     @Step("Logging in with the user.")
     public ProjectsPageService loginWithUser(User user) {

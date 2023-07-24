@@ -14,7 +14,7 @@ pipeline {
                 git branch: 'first_branch', url: 'https://github.com/ryhor-dubrovin/qase-test-automation.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Demail=${email} -Dpassword=${password} -Dsurefire.suiteXmlFiles=src/test/resources/test.xml clean test"
+                sh "mvn -Dmaven.test.failure.ignore=true -Dtoken=72b2653608fade7ce5de34b2db36aa9eafd86826f56f6517ffd90c084b383528 -Dbrowser=chrome -Demail=${email} -Dpassword=${password} -Dsurefire.suiteXmlFiles=src/test/resources/test.xml clean test"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
