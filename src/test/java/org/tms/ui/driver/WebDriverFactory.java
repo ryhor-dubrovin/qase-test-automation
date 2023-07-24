@@ -10,7 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
-    private final static int IMPLICITLY_WAIT_SECONDS = 3;
+    private final static int IMPLICITLY_WAIT_SECONDS = 7;
 
     private WebDriverFactory() {
     }

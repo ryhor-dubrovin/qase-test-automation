@@ -1,9 +1,11 @@
 package org.tms.ui.services;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.tms.ui.pages.ProjectsPage;
 
+@Log4j2
 public class ProjectsPageService {
 
     private ProjectsPage projectsPage = new ProjectsPage();
@@ -31,6 +33,7 @@ public class ProjectsPageService {
     @Step("Creating a new project.")
     public SingleProjectPageService createNewProject(String projectName) {
         projectsPage
+                .openPage()
                 .clickCreateNewProjectButton()
                 .fillInProjectNameField(projectName)
                 .clickCreateProjectButton();
@@ -46,7 +49,14 @@ public class ProjectsPageService {
             }
             index++;
         }
+        log.error(String.format("Project \"%s\" did not found on the page!", projectName));
         return -1;
+    }
+
+    @Step("Opening the project")
+    public SingleProjectPageService openProject(int projectIndex) {
+        projectsPage.openProject(projectIndex);
+        return new SingleProjectPageService();
     }
 
     @Step("Deleting the project.")
@@ -58,9 +68,9 @@ public class ProjectsPageService {
         return this;
     }
 
-    @Step("Checking if a project with the given name is displayed on the page.")
-    public boolean isProjectDisplayed(String projectName) {
-        return getProjectIndex(projectName) > 0;
+    @Step("Check if the \"Create Project\" button is displayed.")
+    public boolean isCreateProjectButtonDisplayed() {
+        return projectsPage.isCreateProjectButtonDisplayed();
     }
 
 }

@@ -1,5 +1,8 @@
 package org.tms.ui.model;
 
+import lombok.Getter;
+
+@Getter
 public class User {
     private String email;
     private String password;
@@ -9,11 +12,4 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }

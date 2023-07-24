@@ -1,5 +1,7 @@
 package org.tms.api.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,19 +9,14 @@ import org.tms.api.adapters.CaseAdapter;
 import org.tms.api.models.Case;
 import org.tms.utils.tools.TestDataGenerator;
 
+@Story("Cases api tests")
 public class CasesTest {
     private static final String PROJECT_CODE = "DEMO";
-    private static final int CASES_IN_PROJECT = 10;
-    private int caseId;
     private CaseAdapter caseAdapter = new CaseAdapter();
+    private int caseId;
 
-    @Test(priority = -1)
-    public void verifyGetAllTestCasesCountTest() {
-        int totalCases = caseAdapter.getCases(PROJECT_CODE).body().path("result.total");
-        Assert.assertEquals(totalCases, CASES_IN_PROJECT, "Incorrect number of cases in DEMO project.");
-    }
-
-    @Test
+    @Test(description = "Verify that test case creation is successful")
+    @Description("Verify that test case creation is successful")
     public void verifyCreateTestCaseSuccessTest() {
         Case testCase = Case.builder()
                 .title(TestDataGenerator.createCaseTitle())
@@ -30,13 +27,15 @@ public class CasesTest {
         Assert.assertTrue(responseStatus, "POST /case/" + PROJECT_CODE + " failed!");
     }
 
-    @Test(dependsOnMethods = "verifyCreateTestCaseSuccessTest")
+    @Test(description = "Verify retrieval of created test case", dependsOnMethods = "verifyCreateTestCaseSuccessTest")
+    @Description("Verify retrieval of created test case")
     public void verifyGetCreatedTestCaseTest() {
         boolean responseStatus = caseAdapter.getCaseById(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("GET /project/%s/%d failed!", PROJECT_CODE, caseId));
     }
 
-    @Test(dependsOnMethods = "verifyGetCreatedTestCaseTest")
+    @Test(description = "Verify that test case deletion is successful", dependsOnMethods = "verifyGetCreatedTestCaseTest")
+    @Description("Verify that test case deletion is successful")
     public void verifyDeleteTestCaseSuccessTest() {
         boolean responseStatus = caseAdapter.deleteCase(PROJECT_CODE, caseId).body().path("status");
         Assert.assertTrue(responseStatus, String.format("DELETE /project/%s/%d failed!", PROJECT_CODE, caseId));

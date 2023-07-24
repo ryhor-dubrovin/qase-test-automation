@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.tms.api.models.Project;
 import org.tms.utils.constants.Urls;
 
 import java.util.List;
@@ -42,6 +41,12 @@ public class ProjectsPage extends BasePage {
         return this;
     }
 
+    @Step("Opening the project.")
+    public SingleProjectPage openProject(int projectIndex) {
+        waitElementToBeClickable(projectButtons.get(projectIndex)).click();
+        return new SingleProjectPage();
+    }
+
     @Step("Check if the \"Create New Project\" button is displayed.")
     public boolean isCreateNewProjectButtonDisplayed() {
         return waitVisibilityOf(createNewProjectButton).isDisplayed();
@@ -51,6 +56,11 @@ public class ProjectsPage extends BasePage {
     public boolean isChatMessagesButtonDisplayed() {
         driver.switchTo().frame(chatFrame);
         return waitVisibilityOf(chatMessagesButton).isDisplayed();
+    }
+
+    @Step("Check if the \"Create Project\" button is displayed.")
+    public boolean isCreateProjectButtonDisplayed() {
+        return waitVisibilityOf(createProjectButton).isDisplayed();
     }
 
     @Step("Clicking the \"Create New Project\" button.")
@@ -66,9 +76,9 @@ public class ProjectsPage extends BasePage {
     }
 
     @Step("Clicking the \"Create Project\" button.")
-    public void clickCreateProjectButton() {
+    public SingleProjectPage clickCreateProjectButton() {
         waitElementToBeClickable(createProjectButton).click();
-//        return new SingleProjectPage();
+        return new SingleProjectPage();
     }
 
     @Step("Entering the \"Project name\".")
