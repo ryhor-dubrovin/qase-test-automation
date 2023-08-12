@@ -10,6 +10,7 @@ import java.util.List;
 
 @Getter
 public class SingleProjectPage extends BasePage {
+    private static final String CASE_BUTTON_XPATH_TEMPLATE = "//div[text() = '%s']";
     @FindBy(xpath = "//span[text() = 'Create new case']")
     private WebElement createNewCaseButton;
     @FindBy(xpath = "//span[text() = 'Create']")
@@ -80,7 +81,7 @@ public class SingleProjectPage extends BasePage {
 
     @Step("Clicking case button")
     public SingleProjectPage clickCaseButton(String caseTitle) {
-        waitElementToBeClickable(driver.findElement(By.xpath(String.format("//div[text() = '%s']", caseTitle)))).click();
+        waitElementToBeClickable(driver.findElement(By.xpath(String.format(CASE_BUTTON_XPATH_TEMPLATE, caseTitle)))).click();
         return this;
     }
 
